@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+import React from 'react';
+
+function Header() {
+  return <div>Header</div>;
+}
+
+export default Header;
+=======
 
 function Header() {
   return (
@@ -6,3 +15,4 @@ function Header() {
 }
 
 export default Header
+>>>>>>> develop
