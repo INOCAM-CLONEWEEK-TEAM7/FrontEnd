@@ -1,7 +1,8 @@
+import { LoginDivider } from "../components/loginPage/styles/LoginDivider";
 
 function LoginPage() {
   return (
-    <div>LoginPage</div>
+    <LoginDivider/>
   )
 }
 
