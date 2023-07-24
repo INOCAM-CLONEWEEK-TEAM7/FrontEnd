@@ -11,11 +11,11 @@ import DetailPage from './pages/DetailPage';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route path='' element={<MainPage />} />
-        <Route path='tag/:category' element={<TagPage />} />
-        <Route path='search/posts' element={<SearchResultPage />} />
-        <Route path='/detail' element={<DetailPage />} />
+      <Route path="/" element={<Layout/>}>
+        <Route path="" element={<MainPage/>}/>
+        <Route path="tag/:category" element={<TagPage/>}/>
+        <Route path="search/posts" element={<SearchResultPage/>}/>
+        <Route path="/detail/:newsId" element={<DetailPage/>}/>
       </Route>
       <Route path='/login' element={<LoginPage />} />
       <Route path='/signup' element={<SignUpPage />} />
