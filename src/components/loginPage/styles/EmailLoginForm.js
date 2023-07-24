@@ -1,9 +1,9 @@
-const { styled } = require("styled-components");
+const { styled } = require('styled-components');
 
 const EmailLoginForm = styled.form`
-  &&>div{
+  && > div {
     line-height: 25.2px;
   }
-`
+`;
 
 export default EmailLoginForm;

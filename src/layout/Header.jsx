@@ -11,7 +11,7 @@ function Header() {
       <HeaderWrapper>
         <HeaderLogo
           onClick={() => {
-            navigate('/main');
+            navigate('/');
           }}
         />
         <SearshButton
