@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
       --orange: #ff6b00;
       --beige: #eae7de;
       --white: #fff;
+      --red: #b22222;
 
       letter-spacing: -.0125rem;
       background-color: var(--beige);
@@ -26,6 +27,6 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     align-items: center;
   }
-`
+`;
 
 export default GlobalStyle;

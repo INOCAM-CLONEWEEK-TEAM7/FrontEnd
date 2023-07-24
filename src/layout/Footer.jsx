@@ -1,27 +1,50 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import arrow from '../right-arrow.png';
-import logo from '../newneek-logo.png';
+import Logo from '../components/common/Logo';
 
 function Footer() {
   const navigate = useNavigate();
+  const [newcount, setNewCount] = useState(0);
+  const [subscribeuser, setSubscribeUser] = useState(0);
+
+  useEffect(() => {
+    // 서버로 데이터를 요청하는 비동기 함수
+    const fetchData = async () => {
+      try {
+        // 서버에서 뉴스 크롤링 개수와 구독자 수를 가져오는 API 엔드포인트 주소
+        const apiEndpoint = 'https://example.com/api/news';
+
+        const response = await fetch(apiEndpoint);
+        const data = await response.json();
+
+        // 가져온 데이터를 변수에 할당
+        setNewCount(data.newcount);
+        setSubscribeUser(data.subscribeuser);
+      } catch (error) {
+        // 오류 처리
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData(); // 데이터 요청 함수 실행
+  }, []); // 빈 배열을 전달하여 한 번만 데이터를 가져오도록 설정
 
   return (
     <FooterLayout>
       <RealTimeState
         onClick={() => {
-          navigate('/main');
+          navigate('/');
         }}
       >
         <p>
-          오늘까지 {}회 뉴스레터를 발행했고 {}명이 구독했어요!
+          오늘까지 {newcount}회 뉴스레터를 발행했고 {subscribeuser}명이 구독했어요!
         </p>
         <img src={arrow} alt='right-arrow'></img>
       </RealTimeState>
       <FooterContainer>
-        <FooterLogo>
-          <img src={logo} alt='footer-logo'></img>
-        </FooterLogo>
+        <Logo $width='12%'/>
         <FooterNav>
           <FooterNavItem>
             <a href='https://newneek.co/about'>뉴닉탄생기</a>
@@ -83,14 +106,6 @@ const FooterContainer = styled.div`
   padding: 4rem 5% 0;
   display: flex;
   justify-content: space-between;
-`;
-
-const FooterLogo = styled.div`
-  width: 50%;
-
-  img {
-    height: 28px;
-  }
 `;
 
 const FooterNav = styled.div`
