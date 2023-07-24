@@ -1,28 +1,30 @@
 import { styled } from 'styled-components';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as CiIcons from 'react-icons/ci';
-import logo from '../newneek_logo.png';
+import logo from '../newneek-logo.png';
 
 function Header() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <HeaderLayout>
       <HeaderWrapper>
         <HeaderLogo
-        // onClick={() => {
-        //   navigate('/main');
-        // }}
+          onClick={() => {
+            navigate('/main');
+          }}
         />
-        <SearshButton // onClick={() => {
-        //   navigate('/search');
-        // }}
+        <SearshButton
+          onClick={() => {
+            navigate('/search');
+          }}
         >
           <CiIcons.CiSearch />
         </SearshButton>
-        <LoginButton // onClick={() => {
-        //   navigate('/login');
-        // }}
+        <LoginButton
+          onClick={() => {
+            navigate('/login');
+          }}
         >
           <CiIcons.CiUser />
         </LoginButton>

@@ -1,7 +1,11 @@
+import Logo from "../components/common/Logo";
+import SignUpSection from "../components/signUpPage/styles/SignUpSection";
 
 function SignUpPage() {
   return (
-    <div>SignUpPage</div>
+    <SignUpSection>
+      <Logo $margin='0 auto 3rem' $width='60%'/>
+    </SignUpSection>
   )
 }
 
