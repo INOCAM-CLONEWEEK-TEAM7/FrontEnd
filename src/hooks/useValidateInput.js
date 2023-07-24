@@ -8,7 +8,8 @@ const useValidateInput = (type) => {
     /^.{8,}$/:
     /^.{1,}$/
   )
-
+  
+  
   const [inputValue, setInputValue] = useState('');
   const [valid, setValid] = useState(true);
   
