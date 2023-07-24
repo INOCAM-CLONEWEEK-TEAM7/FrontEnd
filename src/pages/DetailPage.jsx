@@ -1,4 +1,4 @@
-import Progessbar from '../components/detailPage/ProgressBar'
+import Progessbar from '../components/detailPage/ProgressBar';
 import Subscribe from '../components/detailPage/Subscribe';
 import Post from '../components/detailPage/Post';
 import MiniBenner from '../components/detailPage/MiniBenner';
@@ -11,7 +11,7 @@ function DetailPage() {
       <Subscribe />
       <MiniBenner />
     </div>
-  )
+  );
 }
 
-export default DetailPage
+export default DetailPage;
