@@ -6,6 +6,7 @@ import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
 import TagPage from "./pages/TagPage";
 import SearchResultPage from "./pages/SearchResultPage";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="" element={<MainPage/>}/>
         <Route path="tag/:category" element={<TagPage/>}/>
         <Route path="search/posts" element={<SearchResultPage/>}/>
+        <Route path="/detail" element={<DetailPage/>}/>
       </Route>
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/signup" element={<SignUpPage/>}/>
