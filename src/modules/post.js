@@ -1,17 +1,14 @@
-
 //-----------------------------------------
 //생성함수
 //-----------------------------------------
-const Position = 'post/Position'
+const Position = 'post/Position';
 
-export const PostPosition = (payload) => {
+export const PostPosition = payload => {
   return {
     type: Position,
     payload: payload,
   };
 };
-
-
 
 //-----------------------------------------
 //-----------------------------------------
@@ -21,19 +18,14 @@ export const PostPosition = (payload) => {
 //-----------------------------------------
 
 const postData = (state = [], action) => {
-
   switch (action.type) {
     case Position:
-      state.position=action.payload;
-      return [
-        ...state
-      ]
+      state.position = action.payload;
+      return [...state];
 
     default:
       return state;
   }
-
-
 };
 
-export default postData; 
+export default postData;

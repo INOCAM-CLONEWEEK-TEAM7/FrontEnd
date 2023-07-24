@@ -1,8 +1,5 @@
-
 function TagPage() {
-  return (
-    <div>TagPage</div>
-  )
+  return <div>TagPage</div>;
 }
 
-export default TagPage
+export default TagPage;

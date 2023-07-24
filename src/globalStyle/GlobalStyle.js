@@ -26,6 +26,6 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     align-items: center;
   }
-`
+`;
 
 export default GlobalStyle;

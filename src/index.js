@@ -9,11 +9,11 @@ import store from './ConfigStore';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-  <BrowserRouter>
-    <GlobalStyle/>
-    <App/>
-  </BrowserRouter>
-  </Provider>
+    <BrowserRouter>
+      <GlobalStyle />
+      <App />
+    </BrowserRouter>
+  </Provider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
