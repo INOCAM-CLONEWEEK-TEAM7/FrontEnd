@@ -9,7 +9,6 @@ function EmailLogin() {
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput('email');
   const [password, handlePwOnChange, passwordValid, setPwValid] = useValidateInput('password');
 
-    
   
   return (
     <EmailLoginForm>
@@ -29,7 +28,7 @@ function EmailLogin() {
         <UnderlinedLink to='/signup'>회원가입하기</UnderlinedLink>
       </div>
     </EmailLoginForm>
-  )
+  );
 }
 
-export default EmailLogin
+export default EmailLogin;
