@@ -1,8 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
-    //font-family
+    font-family: 'Noto Sans KR', sans-serif;
     color: #051619;
   }
 
@@ -15,6 +15,6 @@ const GlobalStyle = createGlobalStyle`
         background-color: var(--beige);
         color: var(--font-Color);
     }
-`
+`;
 
 export default GlobalStyle;
