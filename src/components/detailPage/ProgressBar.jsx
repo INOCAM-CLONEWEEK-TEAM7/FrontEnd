@@ -32,7 +32,6 @@ const Progessbar = () => {
                 ContainerRef.current.style.display ='none';
             }
 
-
         }
 
         //스크롤 이벤트리스너 만듬 ref는 랜더링을 일으키지 않기에 콜백함수로 만듬
@@ -76,7 +75,6 @@ const ProgressbarContainer = styled.div`
   height:50px;
 
   border-bottom:1px solid black;
-
 `
 
 const ProgressTitle = styled.div`
@@ -90,6 +88,5 @@ justify-content:center;
 align-items:center;
 
 font-weight:bold;
-
 `
 

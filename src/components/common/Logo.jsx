@@ -1,5 +1,5 @@
 import LogoBox from "./styles/LogoBox";
-import logo from "../../newneek_logo.png"
+import logo from "../../newneek-logo.png"
 import { Link } from "react-router-dom";
 
 function Logo({$margin, $width}) {

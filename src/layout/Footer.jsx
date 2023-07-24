@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import arrow from '../right-arrow.png';
-import logo from '../newneek-logo.png';
+/* import logo from '../newneek-logo.png'; */
+import Logo from '../components/common/Logo';
 
 function Footer() {
   const navigate = useNavigate();
@@ -19,9 +20,7 @@ function Footer() {
         <img src={arrow} alt='right-arrow'></img>
       </RealTimeState>
       <FooterContainer>
-        <FooterLogo>
-          <img src={logo} alt='footer-logo'></img>
-        </FooterLogo>
+        <Logo $width={'12%'} />
         <FooterNav>
           <FooterNavItem>
             <a href='https://newneek.co/about'>뉴닉탄생기</a>
