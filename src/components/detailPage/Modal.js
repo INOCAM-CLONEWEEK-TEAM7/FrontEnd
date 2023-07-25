@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ModalCompo = ({ state, setState, text }) => {
   return (
     <div>
       <OutLayer state={state} onClick={() => setState(false)}></OutLayer>
       <Modal state={state}>
-        {text === 'ad' ? (
+        {text === "ad" ? (
           <Pre>
             {`광고성 정보 수신 동의
                     
@@ -16,8 +16,8 @@ export const ModalCompo = ({ state, setState, text }) => {
                     
                             현재는 뉴스레터에서 광고성 정보만 따로 보내는 것이 어렵기 때문에, 광고성 정보 수신 동의를 하지 않을 경우 서비스 이용이 제한될 수 있습니다. 뉴닉의 광고성 정보 수신 서비스를 원하지 않을 경우, 뉴스레터 하단의 '수신 거부'를 눌러 서비스 이용을 해지할 수 있습니다.
                     
-                            혹시 뉴닉의 광고에 대해 더 자세히 알고 싶다면,`}{' '}
-            <a href={'https://newneek.co/branded/policy'}>{'이 링크'}</a>
+                            혹시 뉴닉의 광고에 대해 더 자세히 알고 싶다면,`}{" "}
+            <a href={"https://newneek.co/branded/policy"}>{"이 링크"}</a>
             {`를 클릭하세요.
                             `}
           </Pre>
@@ -49,22 +49,17 @@ export const ModalCompo = ({ state, setState, text }) => {
 };
 
 const Modal = styled.div`
-  display: ${props => (props.state ? 'block' : 'none')};
+  display: ${props => (props.state ? "block" : "none")};
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
   box-sizing: border-box;
-
   padding: 24px;
   background-color: white;
-
   max-width: 800px;
   width: 95%;
-
   height: 80%;
-
   z-index: ${props => (props.state ? 100 : -1)};
 `;
 
@@ -75,8 +70,7 @@ const OutLayer = styled.div`
   height: 100vh;
   width: 100vw;
   z-index: ${props => (props.state ? 10 : -1)};
-
-  background: ${props => (props.state ? 'rgba(0,0,0,0.6)' : '')};
+  background: ${props => (props.state ? "rgba(0,0,0,0.6)" : "")};
 `;
 
 const Pre = styled.pre`

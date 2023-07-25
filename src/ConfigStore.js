@@ -1,6 +1,6 @@
-import { createStore } from 'redux';
-import { combineReducers } from 'redux';
-import postData from './modules/post';
+import { createStore } from "redux";
+import { combineReducers } from "redux";
+import postData from "./modules/post";
 
 /*
 1. createStore()

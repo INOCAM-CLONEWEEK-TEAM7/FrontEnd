@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
-import * as S from './styles/PostStyle';
+import * as S from "./styles/PostStyle";
 
-import { PostPosition } from '../../modules/post';
-import { useDispatch } from 'react-redux';
+import { PostPosition } from "../../modules/post";
+import { useDispatch } from "react-redux";
 const Post = () => {
   const postRef = useRef(null);
   const dispatch = useDispatch();
@@ -50,14 +50,14 @@ const Post = () => {
   return (
     <S.PostSection>
       <S.PostHeader>
-        <S.TagName>{'태그링크'}</S.TagName>
-        <h2>{'PostTitle'}</h2>
-        <time>{'발행일'}</time>
+        <S.TagName>{"태그링크"}</S.TagName>
+        <h2>{"PostTitle"}</h2>
+        <time>{"발행일"}</time>
       </S.PostHeader>
 
       <S.PostContainer ref={postRef}>
         <S.PostFeatured>
-          <S.PostImg src='https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg' />
+          <S.PostImg src="https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg" />
         </S.PostFeatured>
 
         {/* pre태그가 줄바꿈까지 표시 */}
@@ -74,7 +74,7 @@ const Post = () => {
         <S.PostFoot>
           <S.PostLikeBtn>
             <span>🧡</span>
-            {'좋았슴 '}
+            {"좋았슴 "}
             <b>5</b>
           </S.PostLikeBtn>
 
@@ -82,7 +82,6 @@ const Post = () => {
             <button>F</button>
             <button>T</button>
           </S.ShareBtnContainer>
-        
         </S.PostFoot>
       </S.PostContainer>
     </S.PostSection>

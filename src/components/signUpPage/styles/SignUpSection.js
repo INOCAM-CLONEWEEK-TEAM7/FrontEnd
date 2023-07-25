@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 const SignUpSection = styled.section`
   max-width: 400px;
