@@ -44,7 +44,9 @@ function Footer() {
         <img src={arrow} alt='right-arrow'></img>
       </RealTimeState>
       <FooterContainer>
+
         <Logo $width='12%'/>
+
         <FooterNav>
           <FooterNavItem>
             <a href='https://newneek.co/about'>뉴닉탄생기</a>

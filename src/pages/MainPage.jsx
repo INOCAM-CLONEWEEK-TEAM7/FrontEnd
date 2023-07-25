@@ -1,5 +1,13 @@
+import ContentsSection from '../components/common/ContentsSection'
+
 function MainPage() {
-  return <div>MainPage</div>;
+  return (
+    <div>
+      MainPage
+      <ContentsSection />
+
+    </div>
+  )
 }
 
 export default MainPage;
