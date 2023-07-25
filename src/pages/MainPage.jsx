@@ -1,5 +1,8 @@
 import { styled } from "styled-components";
 import { useState, useEffect } from "react";
+import ContentsSection from "../components/common/ContentsSection"
+import Nav from "../components/common/Nav";
+import MiniBenner from "../components/common/MiniBenner";
 
 function MainPage() {
   const [subscribeuser, setSubscribeUser] = useState(0);
@@ -43,6 +46,10 @@ function MainPage() {
           </SubscribeForm>
         </BannerDescription>
       </BannerBody>
+
+      <Nav></Nav>
+      <ContentsSection />
+      <MiniBenner />
     </div>
   );
 }
