@@ -9,6 +9,16 @@ function EmailLogin() {
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
   const [password, handlePwOnChange, passwordValid, setPwValid] = useValidateInput("password");
 
+  const HandleOnSubmit = e => {
+    e.preventDefault();
+    if (!email && !password) {
+      setEmailValid(false);
+      setPwValid(false);
+    } else if (emailValid && passwordValid) {
+      //login 요청
+    }
+  };
+
   return (
     <EmailLoginForm>
       <WithHelper msg="올바른 이메일 주소를 입력해주세요." valid={emailValid} $margin="1rem 0">
@@ -20,13 +30,7 @@ function EmailLogin() {
       <div>
         <UnderlinedLink to="/forgot">비밀번호를 잊으셨나요?</UnderlinedLink>
       </div>
-      <ChangeOnHoverButton
-        onClick={e => {
-          e.preventDefault();
-        }}
-        $margin="2rem 0"
-        $width="100%"
-      >
+      <ChangeOnHoverButton onClick={HandleOnSubmit} $margin="2rem 0" $width="100%">
         로그인
       </ChangeOnHoverButton>
       <div className="centered">

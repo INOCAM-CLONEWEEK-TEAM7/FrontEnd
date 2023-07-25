@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { styled } from "styled-components";
+
+import * as S from "./styles/PostStyle";
+
 import { PostPosition } from "../../modules/post";
 import { useDispatch } from "react-redux";
 const Post = () => {
@@ -46,107 +48,44 @@ const Post = () => {
   }, []);
 
   return (
-    <PostSection>
-      <PostHeader>
-        <TagName>{"태그링크"}</TagName>
+    <S.PostSection>
+      <S.PostHeader>
+        <S.TagName>{"태그링크"}</S.TagName>
         <h2>{"PostTitle"}</h2>
         <time>{"발행일"}</time>
-      </PostHeader>
-      <PostContainer ref={postRef}>
-        <PostFeatured>
-          <PostImg src="https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg" />
-        </PostFeatured>
+      </S.PostHeader>
+
+      <S.PostContainer ref={postRef}>
+        <S.PostFeatured>
+          <S.PostImg src="https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg" />
+        </S.PostFeatured>
+
         {/* pre태그가 줄바꿈까지 표시 */}
         {postContents.map(item => {
-          return <Postdetail> {item}</Postdetail>;
+          return <S.Postdetail> {item}</S.Postdetail>;
         })}
-        <PostHashTag>
+
+        <S.PostHashTag>
           <a>#사회</a>
           <a>#사회</a>
           <a>#사회</a>
-        </PostHashTag>
-        <PostFoot>
-          <PostLikeBtn>
+        </S.PostHashTag>
+
+        <S.PostFoot>
+          <S.PostLikeBtn>
             <span>🧡</span>
             {"좋았슴 "}
             <b>5</b>
-          </PostLikeBtn>
-          <ShareBtnContainer>
+          </S.PostLikeBtn>
+
+          <S.ShareBtnContainer>
             <button>F</button>
             <button>T</button>
-          </ShareBtnContainer>
-        </PostFoot>
-      </PostContainer>
-    </PostSection>
+          </S.ShareBtnContainer>
+        </S.PostFoot>
+      </S.PostContainer>
+    </S.PostSection>
   );
 };
 
 export default Post;
-
-const PostSection = styled.section`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const PostHeader = styled.div`
-  padding: 4rem 0 4rem 0;
-  border-bottom: 1px solid #051619;
-  border-top: 1px solid #051619;
-  text-align: center;
-  width: 100%;
-`;
-
-const TagName = styled.a`
-  color: #ff6b00 !important;
-  font-size: 0.925rem;
-  font-weight: 700;
-  text-decoration: underline;
-`;
-
-const PostContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 40rem;
-  padding: 4rem 1.4285rem 5.7142rem;
-`;
-
-const PostHashTag = styled.section`
-  display: flex;
-  gap: 10px;
-  margin-bottom: 2rem;
-`;
-
-const PostFoot = styled.section`
-  display: flex;
-  width: 100%;
-  max-width: 45.7142rem;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-`;
-
-const PostLikeBtn = styled.section`
-  background: none;
-`;
-
-const ShareBtnContainer = styled.div`
-  display: flex;
-  gap: 5px;
-`;
-
-const PostFeatured = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-`;
-
-const PostImg = styled.img`
-  width: 100%;
-`;
-
-const Postdetail = styled.pre`
-  white-space: pre-line;
-`;

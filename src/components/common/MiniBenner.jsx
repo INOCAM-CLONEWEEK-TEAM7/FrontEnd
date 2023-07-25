@@ -27,7 +27,8 @@ const MiniBeenrImg = styled.img`
   width: 350px;
   height: 215px;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -57%);
+
   background-size: contain;
   background-repeat: no-repeat;
   border: 0px solid black;
@@ -41,8 +42,11 @@ const BennerATag = styled.a`
 const BennerLine = styled.div`
   margin-top: 5.5rem;
   width: 100%;
-  height: 107px;
+  height: 90px;
   background-color: #ff6b00;
+
+  border-top: 2px solid black;
+  border-bottom: 1px solid black;
 `;
 
 const BennerFigure = styled.div`
@@ -50,9 +54,12 @@ const BennerFigure = styled.div`
   width: 100%;
 `;
 const BennerText = styled.div`
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 57px;
+
+  border-bottom: 1px solid black;
 `;
