@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 
 let id = 1;
 
-const useCheckBox = (text, termsURL) => {
+const useCheckBox = (text, termsURL, inText) => {
   const [checked, setChecked] = useState(false);
 
   const handleCheckOnChange = (e) => {
@@ -16,6 +16,14 @@ const useCheckBox = (text, termsURL) => {
     id++;
     return (
       termsURL?
+      inText?
+      <CheckBoxContainer>
+        <input id={id} type="checkbox" checked={checked} onChange={handleCheckOnChange}/>
+        <label htmlFor={id}>
+          <Link to={termsURL} target="_blank" rel="noopener noreferrer">{text}</Link>에 동의합니다.
+        </label>
+      </CheckBoxContainer>
+      :
       <CheckBoxContainer>
         <input id={id} type="checkbox" checked={checked} onChange={handleCheckOnChange}/>
         <label htmlFor={id}>{text}</label>
@@ -24,7 +32,7 @@ const useCheckBox = (text, termsURL) => {
       :
       <CheckBoxContainer>
         <input id={id} type="checkbox" checked={checked} onChange={handleCheckOnChange}/>
-        <label htmlFor={id}>{text}</label>
+        <label htmlFor={id} >{text}</label>
       </CheckBoxContainer>
     )
   },[termsURL, text])
@@ -49,7 +57,7 @@ const CheckBoxContainer = styled.div`
     position: relative;
   }
 
-  &>a{
+  & a{
     display: inline !important;
     margin: 0 !important;
     text-decoration: underline;
@@ -59,6 +67,13 @@ const CheckBoxContainer = styled.div`
     top: 50%;
     transform: translateY(-50%);
   }
+
+  &>label>a{
+    position: static;
+    cursor: pointer;
+  }
 `;
+
+
 
 export default useCheckBox
