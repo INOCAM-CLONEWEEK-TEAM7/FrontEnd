@@ -6,6 +6,9 @@ import useCheckBox from "../hooks/useCheckBox";
 import ChangeOnHoverButton from "../components/common/styles/ChangeOnHoverButton";
 import mainlogo from "../images/gosum-home.png";
 import StyledInput from "../components/common/styles/StyledInput";
+import ContentsSection from "../components/common/ContentsSection"
+import Nav from "../components/common/Nav";
+import MiniBenner from "../components/common/MiniBenner";
 
 function MainPage() {
   const [subscribeuser, setSubscribeUser] = useState(0);
@@ -107,6 +110,10 @@ function MainPage() {
           <img src={mainlogo} alt="main-logo"></img>
         </MainBannerImage>
       </BannerBody>
+
+      <Nav></Nav>
+      <ContentsSection />
+      <MiniBenner />
     </div>
   );
 }
