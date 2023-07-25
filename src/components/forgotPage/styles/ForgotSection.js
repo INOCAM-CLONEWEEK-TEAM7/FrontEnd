@@ -5,17 +5,17 @@ const ForgotSection = styled.section`
   margin: 0 auto;
   padding: 10rem 5% 20rem;
 
-  &>header{
+  & > header {
     margin-bottom: 3rem;
 
-    &>h1{
-      margin: 0 0 .5rem;
+    & > h1 {
+      margin: 0 0 0.5rem;
       font-size: 14px;
       line-height: 1.4;
       word-break: keep-all;
     }
 
-    &>p{
+    & > p {
       font-size: 1.5rem;
       line-height: 1.4;
       color: var(--black);
@@ -23,29 +23,27 @@ const ForgotSection = styled.section`
     }
   }
 
-  &>form{
-    &>div{
-      
-      &>label{
+  & > form {
+    & > div {
+      & > label {
         display: block;
-        margin: 0 0 .25rem;
+        margin: 0 0 0.25rem;
       }
     }
 
-    &>footer{
-      &>button{
+    & > footer {
+      & > button {
         float: left;
       }
-      &>span{
+      & > span {
         float: right;
         margin-top: 16px;
-        &>a{
+        & > a {
           color: var(--orange);
         }
       }
     }
   }
-
-`
+`;
 
 export default ForgotSection;

@@ -40,9 +40,10 @@ function SignUp() {
       setPwValid(false);
       setNicknameValid(false);
     } else if (emailValid && passwordValid && checkPw === password && nicknameValid) {
-      //회원가입 진행
+      // 회원가입 진행
     }
   };
+
   return (
     <form>
       <WithHelper msg="이메일 형식을 지켜주세요." valid={emailValid} $margin="1rem 0">

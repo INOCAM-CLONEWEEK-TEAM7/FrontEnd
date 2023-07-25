@@ -24,6 +24,7 @@ const ChangeOnHoverButton = styled.button`
   margin: ${({ $margin }) => $margin || "0px"};
   padding: ${({ $padding }) => $padding || "10px 1.5rem 11px"};
   width: ${({ $width }) => $width || "auto"};
+  font-family: "Noto Sans KR", sans-serif;
 
   &&:hover {
     background-color: ${({ $bgOnHover }) => $bgOnHover || "var(--white)"};
