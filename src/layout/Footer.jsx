@@ -39,7 +39,8 @@ function Footer() {
         }}
       >
         <p>
-          오늘까지 {newcount}회 뉴스레터를 발행했고 {subscribeuser}명이 구독했어요!
+          오늘까지 <strong style={{ fontWeight: "bold" }}>{newcount}회</strong> 뉴스레터를 발행했고{" "}
+          <strong style={{ fontWeight: "bold" }}>{subscribeuser}명</strong>이 구독했어요!
         </p>
         <img src={arrow} alt="right-arrow"></img>
       </S.RealTimeState>
