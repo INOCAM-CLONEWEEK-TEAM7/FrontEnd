@@ -31,7 +31,7 @@ const ItemBox = styled.div`
     @media only screen and (min-width: 720px) {
     width:100%;
   }
-
+ 
   @media only screen and (min-width: 900px) {
     width:50%;
 }
