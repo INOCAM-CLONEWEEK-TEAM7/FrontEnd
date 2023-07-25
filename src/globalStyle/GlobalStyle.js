@@ -26,6 +26,11 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
   }
 
+  h1{
+    font-weight: 700;
+    color: var(--black);
+  }
+
   .centered{
     text-align: center;
     align-items: center;

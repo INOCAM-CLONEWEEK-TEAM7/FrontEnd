@@ -1,13 +1,25 @@
+import { useMutation } from "react-query";
 import useValidateInput from "../../hooks/useValidateInput";
 import WithHelper from "../common/WithHelper";
 import ChangeOnHoverButton from "../common/styles/ChangeOnHoverButton";
 import StyledInput from "../common/styles/StyledInput";
 import EmailLoginForm from "./styles/EmailLoginForm";
 import UnderlinedLink from "./styles/UnderlinedLink";
+import { login } from "../../api/user";
+import { useNavigate } from "react-router-dom";
 
 function EmailLogin() {
+  const navigate = useNavigate();
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
   const [password, handlePwOnChange, passwordValid, setPwValid] = useValidateInput("password");
+  const mutation = useMutation(login, {
+    onSuccess: (response) =>{
+      alert(response.msg);
+      if(response.success){
+        navigate('/');
+      }
+    }
+  })
 
   const HandleOnSubmit = e => {
     e.preventDefault();
@@ -15,7 +27,7 @@ function EmailLogin() {
       setEmailValid(false);
       setPwValid(false);
     } else if (emailValid && passwordValid) {
-      //login 요청
+      mutation.mutate({email,password});
     }
   };
 

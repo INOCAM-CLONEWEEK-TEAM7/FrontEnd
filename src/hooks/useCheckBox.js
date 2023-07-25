@@ -35,7 +35,7 @@ const useCheckBox = (text, termsURL, inText) => {
         <label htmlFor={id} >{text}</label>
       </CheckBoxContainer>
     )
-  },[termsURL, text])
+  },[termsURL, text, inText])
 
   return [CheckBox, checked, setChecked];
 }

@@ -5,14 +5,19 @@ import { BrowserRouter } from "react-router-dom";
 import GlobalStyle from "./globalStyle/GlobalStyle";
 import { Provider } from "react-redux";
 import store from "./ConfigStore";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const queryClient = new QueryClient();
+
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <GlobalStyle />
-      <App />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>
   </Provider>,
 );
 
