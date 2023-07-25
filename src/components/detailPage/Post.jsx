@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
-
 import * as S from "./styles/PostStyle";
-
 import { PostPosition } from "../../modules/post";
 import { useDispatch } from "react-redux";
+
 const Post = () => {
   const postRef = useRef(null);
   const dispatch = useDispatch();
@@ -38,6 +37,7 @@ const Post = () => {
     옷을 입고 목걸이·하네스까지 한 채 싸늘히 식어 있었다고. 이는 ‘신종 펫숍’으로 불리는 업체가 벌인 짓으로 드러났어요.
     `,
   ];
+
   useEffect(() => {
     //상대위치: 현재 스크롤 맨위에서 얼마나 떨어졌나
     /*  console.log(postRef.current.getBoundingClientRect().top); */
@@ -54,30 +54,25 @@ const Post = () => {
         <h2>{"PostTitle"}</h2>
         <time>{"발행일"}</time>
       </S.PostHeader>
-
       <S.PostContainer ref={postRef}>
         <S.PostFeatured>
           <S.PostImg src="https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg" />
         </S.PostFeatured>
-
         {/* pre태그가 줄바꿈까지 표시 */}
         {postContents.map(item => {
           return <S.Postdetail> {item}</S.Postdetail>;
         })}
-
         <S.PostHashTag>
           <a>#사회</a>
           <a>#사회</a>
           <a>#사회</a>
         </S.PostHashTag>
-
         <S.PostFoot>
           <S.PostLikeBtn>
             <span>🧡</span>
             {"좋았슴 "}
             <b>5</b>
           </S.PostLikeBtn>
-
           <S.ShareBtnContainer>
             <button>F</button>
             <button>T</button>

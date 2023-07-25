@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import PicMiniBenner from "../../images/minibenner.png";
 import AfterMinibenner from "../../images/afterMinibenner.png";
+import arrow from "../../images/right-arrow.png";
 
 const MiniBenner = () => {
   const [isHover, setIsHover] = useState(false);
@@ -16,7 +17,10 @@ const MiniBenner = () => {
         <MiniBeenrImg src={isHover ? AfterMinibenner : PicMiniBenner}></MiniBeenrImg>
       </BennerFigure>
       <BennerLine />
-      <BennerText>{`더 편하게 보고싶다면? 뉴닉 앱에서 만나요! --->`} </BennerText>
+      <BennerText>
+        더 편하게 보고싶다면? 뉴닉 앱에서 만나요!
+        <img src={arrow} alt="right-arrow"></img>
+      </BennerText>
     </BennerATag>
   );
 };
@@ -24,14 +28,12 @@ const MiniBenner = () => {
 export default MiniBenner;
 
 const MiniBeenrImg = styled.img`
-  width: 350px;
-  height: 215px;
+  width: 300px;
+  height: 188px;
   position: absolute;
-  transform: translate(-50%, -57%);
-
+  transform: translate(-50%, -50.8%);
   background-size: contain;
   background-repeat: no-repeat;
-  border: 0px solid black;
 `;
 
 const BennerATag = styled.a`
@@ -44,15 +46,15 @@ const BennerLine = styled.div`
   width: 100%;
   height: 90px;
   background-color: #ff6b00;
-
   border-top: 2px solid black;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--black);
 `;
 
 const BennerFigure = styled.div`
   text-align: center;
   width: 100%;
 `;
+
 const BennerText = styled.div`
   background-color: white;
   display: flex;
@@ -60,6 +62,8 @@ const BennerText = styled.div`
   align-items: center;
   width: 100%;
   height: 57px;
-
-  border-bottom: 1px solid black;
+  font-size: 1.125rem;
+  font-weight: 600;
+  gap: 1rem;
+  border-bottom: 1px solid var(--black);
 `;

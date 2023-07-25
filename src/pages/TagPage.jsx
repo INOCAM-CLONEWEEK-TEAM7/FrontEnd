@@ -1,12 +1,12 @@
-import Nav from "../components/common/Nav";
+import CategoryNav from "../components/common/CategoryNav";
 
 function TagPage() {
   return (
     <div>
-      <Nav></Nav>
+      <CategoryNav />
       TagPage
     </div>
-  )
+  );
 }
 
 export default TagPage;
