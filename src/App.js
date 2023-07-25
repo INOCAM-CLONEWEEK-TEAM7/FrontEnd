@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage";
 import TagPage from "./pages/TagPage";
 import SearchResultPage from "./pages/SearchResultPage";
 import DetailPage from "./pages/DetailPage";
+import ForgotPage from "./pages/ForgotPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/search" element={<SearchPage />} />
+      <Route path="/forgot" element={<ForgotPage />} />
     </Routes>
   );
 }
