@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage";
 import TagPage from "./pages/TagPage";
 import SearchResultPage from "./pages/SearchResultPage";
 import DetailPage from "./pages/DetailPage";
+import LoadingPage from "./pages/LoadingPage";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="tag/:category" element={<TagPage />} />
         <Route path="search/posts" element={<SearchResultPage />} />
         <Route path="/detail/:newsId" element={<DetailPage />} />
+        <Route path="/loading" element={<LoadingPage />} />
+
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
