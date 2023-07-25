@@ -1,7 +1,7 @@
 //-----------------------------------------
 //생성함수
 //-----------------------------------------
-const Position = 'post/Position';
+const Position = "post/Position";
 
 export const PostPosition = payload => {
   return {
@@ -22,7 +22,6 @@ const postData = (state = [], action) => {
     case Position:
       state.position = action.payload;
       return [...state];
-
     default:
       return state;
   }
