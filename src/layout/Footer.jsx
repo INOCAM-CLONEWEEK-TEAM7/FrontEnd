@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import arrow from '../right-arrow.png';
-
 import Logo from '../components/common/Logo';
 
 function Footer() {
