@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     line-height: 1.8;
   }
@@ -16,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
       --beige: #eae7de;
       --white: #fff;
       --red: #b22222;
+      --light-gray: #ccc;
+      --dark-gray: #666;
 
       letter-spacing: -.0125rem;
       background-color: var(--beige);

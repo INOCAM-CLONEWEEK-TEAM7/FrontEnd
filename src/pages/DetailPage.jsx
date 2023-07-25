@@ -1,7 +1,7 @@
-import Progessbar from '../components/detailPage/ProgressBar';
-import Subscribe from '../components/detailPage/Subscribe';
-import Post from '../components/detailPage/Post';
-import MiniBenner from '../components/common/MiniBenner';
+import Progessbar from "../components/detailPage/ProgressBar";
+import Subscribe from "../components/detailPage/Subscribe";
+import Post from "../components/detailPage/Post";
+import MiniBenner from "../components/common/MiniBenner";
 
 function DetailPage() {
   return (

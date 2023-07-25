@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 const StyledInput = styled.input`
   display: block;
@@ -8,7 +8,11 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   color: var(--black);
   line-height: 25.2px;
-  margin: ${({ $margin }) => $margin || '0px 0px'};
+  margin: ${({ $margin }) => $margin || "0px 0px"};
+
+  &&:focus {
+    outline: none;
+  }
 `;
 
 export default StyledInput;
