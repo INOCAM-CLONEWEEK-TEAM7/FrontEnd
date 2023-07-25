@@ -1,5 +1,12 @@
+import Nav from "../components/common/Nav";
+
 function TagPage() {
-  return <div>TagPage</div>;
+  return (
+    <div>
+      <Nav></Nav>
+      TagPage
+    </div>
+  )
 }
 
 export default TagPage;

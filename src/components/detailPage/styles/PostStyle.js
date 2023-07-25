@@ -9,7 +9,7 @@ export const PostSection = styled.section`
 export const PostHeader = styled.div`
   padding: 4rem 0 4rem 0;
   border-bottom: 1px solid #051619;
-  border-top: 1px solid #051619;
+
 
   text-align: center;
   width: 100%;
