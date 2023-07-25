@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { styled } from 'styled-components';
-import { PostPosition } from '../../modules/post';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useRef } from "react";
+import { styled } from "styled-components";
+import { PostPosition } from "../../modules/post";
+import { useDispatch } from "react-redux";
 const Post = () => {
   const postRef = useRef(null);
   const dispatch = useDispatch();
@@ -48,31 +48,27 @@ const Post = () => {
   return (
     <PostSection>
       <PostHeader>
-        <TagName>{'태그링크'}</TagName>
-        <h2>{'PostTitle'}</h2>
-        <time>{'발행일'}</time>
+        <TagName>{"태그링크"}</TagName>
+        <h2>{"PostTitle"}</h2>
+        <time>{"발행일"}</time>
       </PostHeader>
-
       <PostContainer ref={postRef}>
         <PostFeatured>
-          <PostImg src='https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg' />
+          <PostImg src="https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B5%E1%86%AB_2_2O2teop.jpg" />
         </PostFeatured>
-
         {/* pre태그가 줄바꿈까지 표시 */}
         {postContents.map(item => {
           return <Postdetail> {item}</Postdetail>;
         })}
-
         <PostHashTag>
           <a>#사회</a>
           <a>#사회</a>
           <a>#사회</a>
         </PostHashTag>
-
         <PostFoot>
           <PostLikeBtn>
             <span>🧡</span>
-            {'좋았슴 '}
+            {"좋았슴 "}
             <b>5</b>
           </PostLikeBtn>
           <ShareBtnContainer>
@@ -97,7 +93,6 @@ const PostHeader = styled.div`
   padding: 4rem 0 4rem 0;
   border-bottom: 1px solid #051619;
   border-top: 1px solid #051619;
-
   text-align: center;
   width: 100%;
 `;
@@ -114,7 +109,6 @@ const PostContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: 40rem;
-
   padding: 4rem 1.4285rem 5.7142rem;
 `;
 
@@ -128,7 +122,6 @@ const PostFoot = styled.section`
   display: flex;
   width: 100%;
   max-width: 45.7142rem;
-
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;

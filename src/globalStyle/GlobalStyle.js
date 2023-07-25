@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     line-height: 1.8;
   }

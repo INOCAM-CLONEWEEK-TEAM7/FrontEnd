@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { styled } from 'styled-components';
-import { ModalCompo } from './Modal';
+import React, { useState } from "react";
+import { styled } from "styled-components";
+import { ModalCompo } from "./Modal";
 
 const Subscribe = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [emailState, setEmailState] = useState(false);
   const [modal, setModal] = useState(false);
-  const [modalText, setModalText] = useState('');
+  const [modalText, setModalText] = useState("");
 
   const Sub = e => {
     e.preventDefault();
-    const IDRegex = new RegExp('[a-z0-9]+@[a-z]+[.][a-z]{2,3}');
+    const IDRegex = new RegExp("[a-z0-9]+@[a-z]+[.][a-z]{2,3}");
     if (IDRegex.test(email)) setEmailState(false);
     else setEmailState(true);
   };
@@ -23,17 +23,17 @@ const Subscribe = () => {
   return (
     <Div>
       <SubForm onSubmit={Sub}>
-        <Roundinput value={email} placeholder='이메일 주소' onChange={e => setEmail(e.target.value)} />
-        <OrangeButton>{'뉴스레터 구독하기'}</OrangeButton>
-        {emailState ? '이메일 형식이 아닙니다!' : ''}
+        <Roundinput value={email} placeholder="이메일 주소" onChange={e => setEmail(e.target.value)} />
+        <OrangeButton>{"뉴스레터 구독하기"}</OrangeButton>
+        {emailState ? "이메일 형식이 아닙니다!" : ""}
       </SubForm>
       <ModalCompo state={modal} setState={setModal} text={modalText} />
       <SubscribeInfo>
-        {'구독할 경우 '}
-        <Span onClick={() => ModalView('personal')}>{'개인정보 수집·이용'}</Span>
-        {'과 '}
-        <Span onClick={() => ModalView('ad')}>{'광고성 정보 수신'}</Span>
-        {'에 동의 하게 됩니다.'}
+        {"구독할 경우 "}
+        <Span onClick={() => ModalView("personal")}>{"개인정보 수집·이용"}</Span>
+        {"과 "}
+        <Span onClick={() => ModalView("ad")}>{"광고성 정보 수신"}</Span>
+        {"에 동의 하게 됩니다."}
       </SubscribeInfo>
     </Div>
   );
@@ -47,14 +47,15 @@ const Roundinput = styled.input`
   line-height: 1.1875;
   border-radius: 8px 0 0 8px;
   width: 64%;
-
   min-width: 200px;
   margin: 0;
+
   @media only screen and (max-width: 767px) {
     width: 100%;
     border-radius: 8px 8px 8px 8px;
   }
 `;
+
 const OrangeButton = styled.button`
   display: block;
   min-width: 30%;
@@ -74,6 +75,7 @@ const OrangeButton = styled.button`
     border-radius: 8px 8px 8px 8px;
   }
 `;
+
 const Div = styled.div`
   max-width: 40rem;
   margin: 0 auto;
