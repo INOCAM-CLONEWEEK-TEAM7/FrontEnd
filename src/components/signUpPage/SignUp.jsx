@@ -4,6 +4,9 @@ import WithHelper from "../common/WithHelper";
 import StyledInput from "../common/styles/StyledInput";
 import useAllCheck from "../../hooks/useAllCheck";
 import ChangeOnHoverButton from "../common/styles/ChangeOnHoverButton";
+import { useMutation } from "react-query";
+import { signUp } from "../../api/user";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
@@ -32,6 +35,19 @@ function SignUp() {
     [setCheckedMarketing],
   );
 
+  const navigate = useNavigate();
+
+  const mutation = useMutation(signUp, {
+    onSuccess: (response) => {
+      if(response.data.success){
+        navigate('/');
+      }
+      else{
+        alert(response.data.msg);
+      }
+    }
+  });
+
   const handleOnSubmit = e => {
     e.preventDefault();
 
@@ -40,7 +56,7 @@ function SignUp() {
       setPwValid(false);
       setNicknameValid(false);
     } else if (emailValid && passwordValid && checkPw === password && nicknameValid) {
-      //회원가입 진행
+      mutation.mutate({email,password,nickname});
     }
   };
   return (

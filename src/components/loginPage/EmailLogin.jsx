@@ -14,10 +14,12 @@ function EmailLogin() {
   const [password, handlePwOnChange, passwordValid, setPwValid] = useValidateInput("password");
   const mutation = useMutation(login, {
     onSuccess: (response) =>{
-      alert(response.msg);
-      if(response.success){
+      if(response.data.success){
         navigate('/');
       }
+    },
+    onError: (error) => {
+      alert(error.response.data.msg);
     }
   })
 
