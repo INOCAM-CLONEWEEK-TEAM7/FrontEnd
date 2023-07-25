@@ -28,6 +28,13 @@ const ChangeOnHoverButton = styled.button`
     background-color: ${({ $bgOnHover }) => $bgOnHover || 'var(--white)'};
     color: ${({ $colorOnHover }) => $colorOnHover || 'var(--black)'};
   }
+
+  &&:disabled {
+    background: var(--light-gray);
+    border-color: var(--light-gray);
+    color: var(--dark-gray);
+    cursor: not-allowed;
+  }
 `;
 
 export default ChangeOnHoverButton;

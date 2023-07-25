@@ -9,6 +9,10 @@ const StyledInput = styled.input`
   color: var(--black);
   line-height: 25.2px;
   margin: ${({ $margin }) => $margin || '0px 0px'};
+
+  &&:focus{
+    outline: none;
+  }
 `;
 
 export default StyledInput;
