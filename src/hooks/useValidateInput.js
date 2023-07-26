@@ -16,14 +16,12 @@ const useValidateInput = (type, automatic = true) => {
         setInputValue(e.target.value);
       };
 
-  const isValid = () => pattern.test(inputValue);
-
   const validate = () => {
     setValid(pattern.test(inputValue));
     return pattern.test(inputValue);
   };
 
-  return [inputValue, inputOnChangeHandler, automatic ? valid : isValid, setValid, validate];
+  return [inputValue, inputOnChangeHandler, valid, validate];
 };
 
 export default useValidateInput;

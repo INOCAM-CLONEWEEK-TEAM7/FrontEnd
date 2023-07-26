@@ -1,12 +1,18 @@
 import Logo from "../components/common/Logo";
 import SignUp from "../components/signUpPage/SignUp";
+import SimpleSignUp from "../components/signUpPage/SimpleSignUp";
 import SignUpSection from "../components/signUpPage/styles/SignUpSection";
 
-function SignUpPage() {
+function SignUpPage({email}) {
   return (
     <SignUpSection>
       <Logo $margin="0 auto 3rem" $width="60%" />
-      <SignUp />
+      {
+        email?
+        <SimpleSignUp/>
+        :
+        <SignUp />
+      }
     </SignUpSection>
   );
 }
