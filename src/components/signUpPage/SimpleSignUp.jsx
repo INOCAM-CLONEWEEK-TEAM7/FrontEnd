@@ -8,10 +8,7 @@ import { useMutation } from "react-query";
 import { signUp } from "../../api/user";
 import { useNavigate } from "react-router-dom";
 
-function SignUp() {
-  const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
-  const [password, handlePwOnChange, passwordValid, setPwValid] = useValidateInput("password");
-  const [checkPw, handleCheckPwOnChange] = useValidateInput("");
+function SimpleSignUp({email}) {
   const [nickname, handleNicknameOnChange, nicknameValid, setNicknameValid] = useValidateInput("");
 
   const [CheckUpper14Box, checkedUpper14, setCheckedUpper14] = useCheckBox("만 14세 이상 가입 동의 (필수)");
@@ -51,31 +48,15 @@ function SignUp() {
   const handleOnSubmit = e => {
     e.preventDefault();
 
-    if (!email && !password && !checkPw && !nickname) {
-      setEmailValid(false);
-      setPwValid(false);
+    if (!nickname) {
       setNicknameValid(false);
-    } else if (emailValid && passwordValid && checkPw === password && nicknameValid) {
-      mutation.mutate({email,password,nickname});
+    } else if (nicknameValid) {
+      mutation.mutate({email,nickname, social:true});
     }
   };
-
   return (
     <form>
-      <WithHelper msg="이메일 형식을 지켜주세요." valid={emailValid} $margin="1rem 0">
-        <StyledInput type="email" placeholder="이메일" value={email} onChange={handleEmailOnChange} />
-      </WithHelper>
-      <WithHelper msg="비밀번호는 8자 이상 가능해요." valid={passwordValid} $margin="1rem 0">
-        <StyledInput type="password" placeholder="비밀번호(8자 이상)" value={password} onChange={handlePwOnChange} />
-      </WithHelper>
-      <WithHelper msg="비밀번호가 달라요." valid={checkPw === password} $margin="1rem 0">
-        <StyledInput
-          type="password"
-          placeholder="비밀번호 확인(8자 이상)"
-          value={checkPw}
-          onChange={handleCheckPwOnChange}
-        />
-      </WithHelper>
+      <StyledInput type="email" placeholder="이메일" value={email} />
       <WithHelper msg="닉네임을 입력해주세요." valid={nicknameValid} $margin="1rem 0">
         <StyledInput type="text" placeholder="닉네임" value={nickname} onChange={handleNicknameOnChange} />
       </WithHelper>
@@ -93,4 +74,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SimpleSignUp

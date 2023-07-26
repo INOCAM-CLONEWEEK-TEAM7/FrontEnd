@@ -48,6 +48,15 @@ const LoginButton = styled.div`
   cursor: pointer;
 `;
 
+const NightModeContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`
+
+
+
 // const UserButton = styled.div`
 //   width: 48px;
 //   height: 48px;

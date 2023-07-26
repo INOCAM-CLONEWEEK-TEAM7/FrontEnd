@@ -13,9 +13,8 @@ export const getNewsDetailP = (newsId) => async () => {
   return response;
 }
 
-export const getNewsesByCategoryP = (category) => async () => {
-  console.log(category)
-  const response = await ourAxios.get(`/api/news/category?tag=${category}`);
+export const getNewsesByCategoryP = (category, pageNum) => async () => {
+  const response = await ourAxios.get(`/api/news/category?tag=${category}&page=${pageNum}`);
   return response;
 }
 
