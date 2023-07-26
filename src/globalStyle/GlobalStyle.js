@@ -26,9 +26,14 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
   }
 
-  h1{
+  b, h1, h2, h3, h4, h5, h6, legend, strong, th{
     font-weight: 700;
     color: var(--black);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+    word-break: keep-all;
   }
 
   .centered{

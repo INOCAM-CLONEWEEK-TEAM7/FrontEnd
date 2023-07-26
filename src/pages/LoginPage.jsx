@@ -5,8 +5,6 @@ import SnsLogin from "../components/loginPage/SnsLogin";
 import { LoginDivider } from "../components/loginPage/styles/LoginDivider";
 import LoginSection from "../components/loginPage/styles/LoginSection";
 import { useNavigate } from "react-router-dom";
-import { getAllNewsesP, getNewsDetailP, getNewsesByCategoryP, getNewsesBySearchP } from "../api/news";
-import { useQuery } from "react-query";
 
 function LoginPage() {
   const navigate = useNavigate();
