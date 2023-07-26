@@ -2,9 +2,15 @@ import { useNavigate } from "react-router-dom";
 import arrow from "../images/right-arrow.png";
 import Logo from "../components/common/Logo";
 import { S } from "./FooterStyles";
+import { getSubsciberCount } from "../api/likeSubscrib";
+import { useQuery } from "react-query";
 
 function Footer() {
+  //몇명구독인지는 있음 몇회 발행인지는 없음 
+  const {isLoading, isError, data} = useQuery('Subscibe',getSubsciberCount)
+  console.log(data);
   const navigate = useNavigate();
+  const [newcount, setNewCount] = useState(0);
 
   return (
     <S.FooterLayout>
@@ -14,8 +20,8 @@ function Footer() {
         }}
       >
         <p>
-          오늘까지 <strong style={{ fontWeight: "bold" }}>{}회</strong> 뉴스레터를 발행했고{" "}
-          <strong style={{ fontWeight: "bold" }}>{}명</strong>이 구독했어요!
+          오늘까지 <strong style={{ fontWeight: "bold" }}>{newcount}회</strong> 뉴스레터를 발행했고{" "}
+          <strong style={{ fontWeight: "bold" }}>{data}명</strong>이 구독했어요!
         </p>
         <img src={arrow} alt="right-arrow"></img>
       </S.RealTimeState>
