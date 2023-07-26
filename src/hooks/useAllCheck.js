@@ -54,6 +54,7 @@ const CheckBoxContainer = styled.div`
     padding-left: 2rem;
     line-height: 16px;
     position: relative;
+    color: var(--black);
   }
 
   & > a {

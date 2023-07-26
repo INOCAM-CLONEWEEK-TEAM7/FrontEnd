@@ -45,6 +45,7 @@ const SubText = styled.p`
   max-width: 560px;
   font-size: 1.125rem;
   margin: 0;
+  color: var(--black);
 `;
 
 const SubscribeForm = styled.form`
@@ -79,6 +80,7 @@ const AsideGuide = styled.div`
   a {
     margin: 1.4rem 0;
     text-decoration: none;
+    color: var(--black);
   }
 
   img {

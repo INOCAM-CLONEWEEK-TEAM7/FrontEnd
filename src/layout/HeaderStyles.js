@@ -11,6 +11,7 @@ const HeaderWrapper = styled.div`
   padding: 45px 35px;
   max-width: 1360px;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 `;
 
@@ -49,10 +50,32 @@ const LoginButton = styled.div`
 `;
 
 const NightModeContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  margin-left: auto;
+  margin-right: 3.2rem;
+  &>div{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &>.icon{
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &>.toggle{
+      position: relative;
+      display: block;
+      margin-left: 16px;
+      width: 51px;
+      padding: 0;
+      height: auto;
+      cursor: pointer;
+    }
+  }
 `
 
 
@@ -75,5 +98,6 @@ export const S = {
   HeaderLogo,
   SearshButton,
   LoginButton,
+  NightModeContainer
   //   UserButton,
 };

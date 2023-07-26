@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { styled } from 'styled-components';
+import ChangeOnHoverButton from './styles/ChangeOnHoverButton';
 
 const GetListBtn = ({pageNum, setPageNum, total}) => {
  
@@ -25,9 +26,15 @@ const GetListBtn = ({pageNum, setPageNum, total}) => {
         SetScroll();
     }
     return (
-        <Button BtnState={BtnState} onClick={GetList}>
+        <ChangeOnHoverButton 
+        $bgColor="var(--white)"
+        $color="var(--black)"
+        $bgOnHover="var(--orange)"
+        $colorOnHover="var(--black)" 
+        $width = "200px"
+        onClick={GetList}>
             더보기
-        </Button>
+        </ChangeOnHoverButton>
     );
 };
 

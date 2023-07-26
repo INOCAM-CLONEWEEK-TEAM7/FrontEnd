@@ -12,13 +12,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
-      --black : #051619;
-      --orange: #ff6b00;
-      --beige: #eae7de;
-      --white: #fff;
-      --red: #b22222;
-      --light-gray: #ccc;
-      --dark-gray: #666;
+      --black : ${({$nightMode})=>$nightMode? "#fff" : "#051619"};
+      --orange: ${({$nightMode})=>$nightMode? "#582D25" : "#ff6b00"};
+      --beige: ${({$nightMode})=>$nightMode? "#976961" : "#eae7de"};
+      --white: ${({$nightMode})=>$nightMode? "#051619" : "#fff"};
+      --red: ${({$nightMode})=>$nightMode? "#00498c" : "#b22222"};
+      --light-gray: ${({$nightMode})=>$nightMode? "#666" : "#ccc"};
+      --dark-gray: ${({$nightMode})=>$nightMode? "#ccc" : "#666"};
 
       letter-spacing: -.0125rem;
       background-color: var(--beige);

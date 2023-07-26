@@ -51,6 +51,9 @@ const CheckBoxContainer = styled.div`
   padding: 0.5rem 0;
   position: relative;
 
+  *{
+    color: var(--black);
+  }
   & > input {
     border: none;
     position: absolute;

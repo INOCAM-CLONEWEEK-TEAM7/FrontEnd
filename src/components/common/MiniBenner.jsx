@@ -45,7 +45,7 @@ const BennerLine = styled.div`
   margin-top: 5.5rem;
   width: 100%;
   height: 90px;
-  background-color: #ff6b00;
+  background-color: var(--orange);
   border-top: 2px solid black;
   border-bottom: 1px solid var(--black);
 `;
@@ -56,7 +56,7 @@ const BennerFigure = styled.div`
 `;
 
 const BennerText = styled.div`
-  background-color: white;
+  background-color: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
