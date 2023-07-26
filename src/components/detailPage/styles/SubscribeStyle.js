@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 export const Roundinput = styled.input`
   padding: 1.0333rem;
-  font-size: 1.0933rem;
-  line-height: 1.1875;
+  font-size: 1.1933rem;
+  line-height: 1.7675;
   border-radius: 8px 0 0 8px;
   width: 64%;
   min-width: 200px;
@@ -21,7 +21,7 @@ export const OrangeButton = styled.button`
   font-size: 1.1933rem;
   padding: 1.0333rem;
   color: #fff;
-  line-height: 1.1675;
+  line-height: 1.8575;
   border: 1px solid #051619;
   border-left: 0;
   background-color: #ff6b00;
@@ -36,7 +36,7 @@ export const OrangeButton = styled.button`
 `;
 
 export const Div = styled.div`
-  max-width: 40rem;
+  max-width: 45rem;
   margin: 0 auto;
   padding: 0 1.4285rem 5.7142rem;
 `;

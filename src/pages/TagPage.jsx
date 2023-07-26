@@ -1,4 +1,4 @@
-import Nav from "../components/common/Nav";
+import Nav from "../components/common/CategoryNav";
 import { useParams } from "react-router-dom";
 import ContentsSection from "../components/common/ContentsSection";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ function TagPage() {
   console.log(pageNum)
 
   //검색결과를 가져올 리엑트 쿼리 
-  const { isLoading, isError, data, isSuccess } = useQuery(`${category}${pageNum}`, getNewsesByCategoryP(category));
+  const { isLoading, isError, data, isSuccess } = useQuery(`${category}${pageNum}`, getNewsesByCategoryP(category,pageNum));
 
   const [newsList, setNewsList] = useState([]);
   const [ListNum, setListNum] = useState(0);

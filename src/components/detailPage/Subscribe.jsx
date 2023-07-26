@@ -3,6 +3,8 @@ import { ModalCompo } from "./Modal";
 import * as S from "./styles/SubscribeStyle";
 import useValidateInput from "../../hooks/useValidateInput";
 import WithHelper from "../common/WithHelper";
+import {postSubscribe} from '../../api/likeSubscrib'
+import { async } from "q";
 
 const Subscribe = () => {
   const [emailState, setEmailState] = useState(false);
@@ -11,10 +13,23 @@ const Subscribe = () => {
   const [email, handleEmailOnChange, emailValid] = useValidateInput("email");
   const [checkTry, setCheckTry] = useState(false);
 
-  const Sub = e => {
+  const Sub = async(e) => {
     e.preventDefault();
     setEmailState(!emailValid);
     setCheckTry(true);
+
+    if(emailValid===true){
+      const nickname="";
+      try{
+        const response = await postSubscribe(email,nickname);
+        if(response.status===200) alert("구독 되었습니다");
+        
+      } catch (error){
+        alert('에러입니다')
+      }
+      
+      
+    }
   };
 
   useEffect(() => {
@@ -26,6 +41,7 @@ const Subscribe = () => {
     setModalText(text);
     setModal(true);
   };
+
 
   return (
     <S.Div>

@@ -58,7 +58,7 @@ function SearchResultPage() {
 
               {"의 검색 결과예요."}
             </h2>
-            <span>{`🦔고슴이 ${ListNum}개 찾았음!`}</span>
+            {/* <span>{`🦔고슴이 ${ListNum}개 찾았음!`}</span> */}
 
 
             <div className="sorting">

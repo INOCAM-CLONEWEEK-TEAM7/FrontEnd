@@ -25,7 +25,7 @@ export const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 40rem;
+  max-width: 45rem;
   padding: 4rem 1.4285rem 5.7142rem;
 `;
 
