@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as CiIcons from "react-icons/ci";
 import { S } from "./HeaderStyles";
-import { logout } from "../api/user";
-import { render } from "react-dom";
 import useModal from "../hooks/useModal";
 import MenuCard from "./MenuCard";
 
@@ -39,7 +37,11 @@ function Header() {
           }}
           ref={openerRef}
         >
-          <CiIcons.CiUser />
+          {isLoggedin?
+            '🦔'
+            :
+            <CiIcons.CiUser />
+          }
         </S.LoginButton>
       </S.HeaderWrapper>
     </S.HeaderLayout>
