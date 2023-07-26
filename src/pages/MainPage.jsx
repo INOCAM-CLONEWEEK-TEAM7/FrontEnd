@@ -9,30 +9,35 @@ import StyledInput from "../components/common/styles/StyledInput";
 import ContentsSection from "../components/common/ContentsSection"
 import Nav from "../components/common/Nav";
 import MiniBenner from "../components/common/MiniBenner";
+import { getAllNewsesP } from "../api/news";
+import { useQuery } from "react-query";
 
 function MainPage() {
-  const [subscribeuser, setSubscribeUser] = useState(0);
 
+  //페이징 요청할 페이지넘버
+  const [pageNum, setPageNum] = useState(0);
+  console.log(pageNum)
+
+  //검색결과를 가져올 리엑트 쿼리 
+  const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum));
+
+  const [newsList, setNewsList] = useState([]);
+  const [ListNum, setListNum] = useState(0);
+
+  //데이터 값을 담아줌
+  //////////////////
   useEffect(() => {
-    // 서버로 데이터를 요청하는 비동기 함수
-    const fetchData = async () => {
-      try {
-        // 서버에서 뉴스 크롤링 개수와 구독자 수를 가져오는 API 엔드포인트 주소
-        const apiEndpoint = "https://example.com/api/news";
-
-        const response = await fetch(apiEndpoint);
-        const data = await response.json();
-
-        // 가져온 데이터를 변수에 할당
-        setSubscribeUser(data.subscribeuser);
-      } catch (error) {
-        // 오류 처리
-        console.error("Error fetching data:", error);
+    {
+      if (isSuccess) {
+        setNewsList([...newsList, ...data.data.data.newsList]);
+        setListNum(data.data.data.newsCount)
       }
-    };
+    }
+  }, [data])
+  ////////////////////
 
-    fetchData(); // 데이터 요청 함수 실행
-  }, []); // 빈 배열을 전달하여 한 번만 데이터를 가져오도록 설정
+
+  const [subscribeuser, setSubscribeUser] = useState(0);
 
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
   const [nickname, handleNicknameOnChange, nicknameValid, setNicknameValid] = useValidateInput("");
@@ -56,6 +61,7 @@ function MainPage() {
       //회원가입 진행
     }
   };
+  
 
   return (
     <div>
@@ -112,7 +118,11 @@ function MainPage() {
       </BannerBody>
 
       <Nav></Nav>
-      <ContentsSection />
+      <ContentsSection
+            data={newsList}
+            pageNum={pageNum}
+            setPageNum={setPageNum}
+            total={ListNum} />
       <MiniBenner />
     </div>
   );

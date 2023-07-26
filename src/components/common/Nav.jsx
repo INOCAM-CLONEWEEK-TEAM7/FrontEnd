@@ -16,39 +16,31 @@ const Nav = () => {
         },
         {
             tagName:'경제',
-            url:'/tag/economy'
+            url:'/tag/economic'
         },
         {
-            tagName:'세계',
-            url:'/tag/world'
+            tagName:'해외',
+            url:'/tag/foreign'
         },
         {
             tagName:'테크',
-            url:'/tag/tech'
+            url:'/tag/digital'
         },
         {
-            tagName:'노동',
-            url:'/tag/labor'
-        },
-        {
-            tagName:'환경',
-            url:'/tag/environment'
-        },
-        {
-            tagName:'인권',
-            url:'/tag/social-rights'
+            tagName:'스포츠',
+            url:'/tag/sports'
         },
         {
             tagName:'사회',
-            url:'/tag/domestic-issue'
+            url:'/tag/society'
         },
         {
             tagName:'문화',
             url:'/tag/culture'
         },
         {
-            tagName:'라이프',
-            url:'/tag/life'
+            tagName:'연예',
+            url:'/tag/entertain'
         }
     ])
     return (
@@ -58,7 +50,7 @@ const Nav = () => {
                     let check=false;
                     item.url.includes(params.category) ? check=true : check=false ;
                     console.log(check, item.tagName);
-                    return <StyledLink to={item.url} border={check}>{item.tagName}</StyledLink>
+                    return <StyledLink href={item.url} border={check}>{item.tagName}</StyledLink>
                 })
             }
 
@@ -84,7 +76,7 @@ const NavSection = styled.section`
 
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
 
 
     padding-top : 10px;

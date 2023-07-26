@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const PostSection = styled.section`
   display: flex;
@@ -15,7 +16,7 @@ export const PostHeader = styled.div`
   width: 100%;
 `;
 
-export const TagName = styled.a`
+export const TagName = styled(Link)`
   color: #ff6b00 !important;
   font-size: 0.925rem;
   font-weight: 700;
@@ -33,6 +34,7 @@ export const PostContainer = styled.div`
 
 export const PostHashTag = styled.section`
   display: flex;
+  flex-wrap:wrap;
   gap: 10px;
   margin-bottom: 2rem;
 `;
