@@ -59,6 +59,7 @@ function SignUp() {
       mutation.mutate({email,password,nickname});
     }
   };
+
   return (
     <form>
       <WithHelper msg="이메일 형식을 지켜주세요." valid={emailValid} $margin="1rem 0">

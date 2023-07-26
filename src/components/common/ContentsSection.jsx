@@ -1,35 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
-import minibenner from "../../images/minibenner.png";
+import GetListBtn from './GetListBtn';
+import { Link } from 'react-router-dom';
 
-const ContentsSection = () => {
-    //12개씩 받아온 정보를 추가 저장해주면 될 것같다
-    //만약 서버에서 전체를준다면 
-    const[pageNum,setPageNum]=useState(3);
-    //a는 전체 데이터 
-    const a = [
-        {1:1},
-        {2:1},
-        {3:1},
-        {4:1},
-        {5:1},
-        {6:1},
-        {7:1},
-        {8:1}
-    ]
-
-    //b는 자른 데이터   
-    const b= a.slice(0,pageNum);
-
+const ContentsSection = ({data, pageNum,setPageNum, total}) => {
+  
     const Card = ({item}) => {
         return (
-            <ItemBox>
-                <Img src={minibenner}></Img>
+            <ItemBoxLink to={`/detail/${item.newsId}`}>
+                <Img src={item.imageUrl}></Img>
                 <ItemBody>
-                    <h3>{`제목이 들어갑니다`}</h3>
-                    <span>{`날짜`} {`태그`}</span>
+                    <h3>{item.title}</h3>
+                    <span>{item.date} {item.category}</span>
                 </ItemBody>
-            </ItemBox>
+            </ItemBoxLink>
         )
     }
 
@@ -37,13 +21,12 @@ const ContentsSection = () => {
         <Section>
             <Wrap>
                 {
-                    b.map((item)=>{
+                  data.map((item)=>{
                         return <Card item={item}></Card>
                     })
                 }
             </Wrap>
-            
-         <Button onClick={()=>setPageNum(pageNum+3)}>더보기 </Button>
+         <GetListBtn pageNum={pageNum} setPageNum={setPageNum} total={total}></GetListBtn>
         </Section>
     );
 };
@@ -57,56 +40,50 @@ const Section = styled.section`
     width:100%;
     gap:30px;
 
-    padding-bottom:30px;
+    padding-bottom: 30px;
     margin-bottom : 200px;
  
 `;
 
-
 const Wrap = styled.section`
-    display:flex;
-    flex-wrap:wrap;
-    width:80%;
-    border-left:1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  border-left: 1px solid black;
 `;
 
-const ItemBox = styled.div`
+const ItemBoxLink = styled(Link)`
+    text-decoration:none;
     border-right:1px solid black;
     border-top:1px solid black;
 
-    width:24.8%;
-    filter:grayscale(1);
-    
-    &:hover{
-        filter:grayscale(0);
-    }
+  filter: grayscale(1);
 
-    @media only screen and (max-width: 1360px) {
-        width:33.0333%;
-    }
-    @media only screen and (max-width: 900px) {
-        width:48%;
-    }
-    @media only screen and (max-width: 720px) {
-        width:100%;
-    }
- 
+  &:hover {
+    filter: grayscale(0);
+  }
+
+  @media only screen and (max-width: 1360px) {
+    width: 33.0333%;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 48%;
+  }
+  @media only screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 const Img = styled.img`
     width:100%;
+    height: 200px;
 `
 const ItemBody = styled.div`
     display:flex;
     flex-direction:column;
     padding : 5%;
-    width:90%;
     border-top:1px solid black;
     border-bottom:1px solid black;
+    height:150px;
 `
 
-const Button = styled.button`
-    width: 200px;
-    border-radius:10px;
-    padding:10px;
-`

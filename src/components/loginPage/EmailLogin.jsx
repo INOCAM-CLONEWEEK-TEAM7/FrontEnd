@@ -12,6 +12,7 @@ function EmailLogin() {
   const navigate = useNavigate();
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
   const [password, handlePwOnChange, passwordValid, setPwValid] = useValidateInput("password");
+
   const mutation = useMutation(login, {
     onSuccess: (response) =>{
       if(response.data.success){
@@ -23,13 +24,14 @@ function EmailLogin() {
     }
   })
 
+
   const HandleOnSubmit = e => {
     e.preventDefault();
     if (!email && !password) {
       setEmailValid(false);
       setPwValid(false);
     } else if (emailValid && passwordValid) {
-      mutation.mutate({email,password});
+      mutation.mutate({ email, password });
     }
   };
 

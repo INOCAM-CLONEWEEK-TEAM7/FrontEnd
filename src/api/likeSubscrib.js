@@ -13,5 +13,5 @@ export const postSubscribe = async ({email, nickname}) => {
 
 export const getSubsciberCount = async () => {
   const response = await ourAxios.get("/api/news/subscribe_count");
-  return response
+  return response.data.data
 }

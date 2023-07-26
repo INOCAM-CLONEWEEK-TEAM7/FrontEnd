@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import * as S from "./styles/ProgressBarStyle";
 
-const Progessbar = () => {
+const Progessbar = ({title}) => {
   const progerssRef = useRef(null);
   const ContainerRef = useRef(null);
 
@@ -23,7 +23,6 @@ const Progessbar = () => {
         const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         //%로 계산
         const scroll = `${(nowScroll - postData.position) / (windowHeight - postData.position)}`;
-
         progerssRef.current.style.transform = `scale(${scroll}, 1)`;
       } else {
         ContainerRef.current.style.display = "none";
@@ -38,7 +37,7 @@ const Progessbar = () => {
 
   return (
     <S.ProgressbarContainer ref={ContainerRef}>
-      <S.ProgressTitle>{"타이틀이 들어갑니다"}</S.ProgressTitle>
+      <S.ProgressTitle>{title}</S.ProgressTitle>
       <S.Progressbar ref={progerssRef} />
     </S.ProgressbarContainer>
   );
