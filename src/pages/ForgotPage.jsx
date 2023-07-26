@@ -4,14 +4,24 @@ import ForgotSection from "../components/forgotPage/styles/ForgotSection";
 import useValidateInput from "../hooks/useValidateInput";
 import ChangeOnHoverButton from "../components/common/styles/ChangeOnHoverButton";
 import StyledInput from "../components/common/styles/StyledInput";
+import { useMutation } from "react-query";
+import { findPassword } from "../api/user";
 
 function ForgotPage() {
-  const [email, handleEmailOnChange, valid, setValid, validate] = useValidateInput("email", false);
+  const [email, handleEmailOnChange, valid, validate] = useValidateInput('email', false);
+  const mutation = useMutation(findPassword, {
+    onSuccess: (response) => {
+      if(response.data.success)
+        alert("이메일로 링크를 보내드렸어요!");
+      else
+        alert("등록되지 않은 이메일이에요!")
+    }
+  })
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    if (validate()) {
-      // 통신
+    if(validate()){
+      mutation.mutate({email});
     }
   };
 

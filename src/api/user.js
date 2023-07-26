@@ -1,14 +1,19 @@
 import ourAxios from "./ourAxios"
 
-export const signUp = async ({email, password, nickname, optionCheck}) => {
+export const signUp = async ({email, password, nickname, optionCheck, social}) => {
   const response = await ourAxios.post("/api/auth/signup",{email, password, nickname, optionCheck});
-  return response;
+
+  if(response.data.success){
+    return await login({email, password})
+  }
+  else
+    return response;
 }
 
-export const login = async ({email, password}) => {
-  const response = await ourAxios.post("/api/auth/login", {email, password});
+export const login = async ({email, password, social=false}) => {
+  const response = await ourAxios.post("/api/auth/login", {email, password, social});
    
-  if(response.success){
+  if(response.data.success){
     localStorage.setItem('accessToken', response.headers.get("Authorization"));
   }
   

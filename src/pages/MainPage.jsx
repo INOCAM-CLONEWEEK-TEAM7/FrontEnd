@@ -11,6 +11,7 @@ import MiniBenner from "../components/common/MiniBenner";
 import arrow from "../images/right-arrow.png";
 import { getAllNewsesP } from "../api/news";
 import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
 
 function MainPage() {
 
@@ -136,7 +137,7 @@ function MainPage() {
         </S.BannerDescription>
       </S.MainBanner>
       <CategoryNav />
-      <ContentsSection />
+      <ContentsSection data={newsList} pageNum={pageNum} setPageNum={setPageNum} total={ListNum}/>
       <MiniBenner />
       <div style={{ height: "120px", borderTop: "1px solid var(--black)" }}></div>
       <S.AsideGuide>
