@@ -14,6 +14,10 @@ const RealTimeState = styled.div`
   justify-content: space-between;
   font-size: 1.5rem;
   cursor: pointer;
+
+  &:hover {
+    display: none;
+  }
 `;
 
 const FooterContainer = styled.div`
@@ -60,18 +64,6 @@ const FooterAddressInfo = styled.div`
 `;
 
 /*
-@-webkit-keyframes marquee {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-
-    to {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%)
-    }
-}
-
 @keyframes marquee {
     0% {
         -webkit-transform: translateX(0);
@@ -81,18 +73,6 @@ const FooterAddressInfo = styled.div`
     to {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%)
-    }
-}
-
-@-webkit-keyframes marquee-right {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-
-    to {
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%)
     }
 }
 

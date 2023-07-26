@@ -23,7 +23,6 @@ const Progessbar = ({title}) => {
         const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         //%로 계산
         const scroll = `${(nowScroll - postData.position) / (windowHeight - postData.position)}`;
-
         progerssRef.current.style.transform = `scale(${scroll}, 1)`;
       } else {
         ContainerRef.current.style.display = "none";

@@ -45,12 +45,11 @@ const Section = styled.section`
  
 `;
 
-
 const Wrap = styled.section`
-    display:flex;
-    flex-wrap:wrap;
-    width:80%;
-    border-left:1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  border-left: 1px solid black;
 `;
 
 const ItemBoxLink = styled(Link)`
@@ -58,23 +57,21 @@ const ItemBoxLink = styled(Link)`
     border-right:1px solid black;
     border-top:1px solid black;
 
-    width:24.8%;
-    filter:grayscale(1);
-    
-    &:hover{
-        filter:grayscale(0);
-    }
+  filter: grayscale(1);
 
-    @media only screen and (max-width: 1360px) {
-        width:33.0333%;
-    }
-    @media only screen and (max-width: 900px) {
-        width:48%;
-    }
-    @media only screen and (max-width: 720px) {
-        width:100%;
-    }
- 
+  &:hover {
+    filter: grayscale(0);
+  }
+
+  @media only screen and (max-width: 1360px) {
+    width: 33.0333%;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 48%;
+  }
+  @media only screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 const Img = styled.img`

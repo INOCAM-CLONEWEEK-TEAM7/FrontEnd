@@ -10,8 +10,6 @@ export const PostSection = styled.section`
 export const PostHeader = styled.div`
   padding: 4rem 0 4rem 0;
   border-bottom: 1px solid #051619;
-
-
   text-align: center;
   width: 100%;
 `;
@@ -28,7 +26,6 @@ export const PostContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: 40rem;
-
   padding: 4rem 1.4285rem 5.7142rem;
 `;
 
@@ -43,7 +40,6 @@ export const PostFoot = styled.section`
   display: flex;
   width: 100%;
   max-width: 45.7142rem;
-
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;

@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import arrow from "../images/right-arrow.png";
 import Logo from "../components/common/Logo";
 import { S } from "./FooterStyles";

@@ -51,7 +51,7 @@ function TagPage() {
         total={ListNum} />
 
     </div>
-  )
+  );
 }
 
 export default TagPage;

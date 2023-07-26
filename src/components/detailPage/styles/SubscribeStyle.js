@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 export const Roundinput = styled.input`
   padding: 1.0333rem;
@@ -6,9 +6,9 @@ export const Roundinput = styled.input`
   line-height: 1.1875;
   border-radius: 8px 0 0 8px;
   width: 64%;
-
   min-width: 200px;
   margin: 0;
+
   @media only screen and (max-width: 767px) {
     width: 100%;
     border-radius: 8px 8px 8px 8px;

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import ReactPlayer from 'react-player'
 
 import * as S from "./styles/PostStyle";
-
 import { PostPosition } from "../../modules/post";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -31,7 +30,6 @@ const Post = ({data}) => {
         <h2>{data.title}</h2>
         <time>{data.createDate}</time>
       </S.PostHeader>
-
       <S.PostContainer ref={postRef}>
           {
             data.imageUrl!==null
@@ -45,7 +43,6 @@ const Post = ({data}) => {
         {postContents.map(item => {
           return <S.Postdetail> {item}</S.Postdetail>;
         })}
-
         <S.PostHashTag>
           {
             tag.map((item)=>{
@@ -54,14 +51,12 @@ const Post = ({data}) => {
           }
 
         </S.PostHashTag>
-
         <S.PostFoot>
           <S.PostLikeBtn>
             <span>🧡</span>
             {"좋았슴 "}
             <b>{data.likeCount}</b>
           </S.PostLikeBtn>
-
           <S.ShareBtnContainer>
             <button>F</button>
             <button>T</button>
