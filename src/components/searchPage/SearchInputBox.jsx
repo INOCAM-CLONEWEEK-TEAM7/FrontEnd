@@ -27,7 +27,7 @@ function SearchInputBox() {
   
   return (
     <SearchInputField>
-      <button>
+      <button onClick={()=>navigate(-1)}>
         <RightArrow/>
       </button>
       <input placeholder="고슴아 이게 궁금해. (인물, 이슈)" value={keyword} onChange={keywordOnChange} onKeyDown={handleOnEnter} ref={inputRef}/>
