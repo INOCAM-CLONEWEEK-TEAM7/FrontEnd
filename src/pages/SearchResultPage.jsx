@@ -49,7 +49,8 @@ function SearchResultPage() {
 
   return (
     <ResultSection>
-      {check ? (
+      {check
+        ?
         <>
           <ResultHeader>
             <h2>
@@ -79,30 +80,34 @@ function SearchResultPage() {
             setPageNum={setPageNum}
             total={ListNum} />
         </>
-      ) : (
+        :
         <>
           <ResultHeader>
             <h2>
               <Span>{keyword}</Span>
               {"관련된 이슈를 아직 다루지 않았어요!"}
             </h2>
-            
+
             <>검색창에서 썼던 고슴이 추천키워드 </>
           </ResultHeader>
+
         </>
-      )}
+      }
+
     </ResultSection>
   );
 }
 
 export default SearchResultPage;
 
-const ResultSection = styled.section``;
 
+const ResultSection = styled.section`
+
+`
 const ResultHeader = styled.div`
   padding: 0 5% 5% 10%;
-`;
+`
 
 const Span = styled.span`
   color: darkgray;
-`;
+` 
