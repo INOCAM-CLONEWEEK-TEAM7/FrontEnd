@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import GetListBtn from './GetListBtn';
 import { Link } from 'react-router-dom';
 
-const ContentsSection = ({data, pageNum,setPageNum, total}) => {
+const ContentsSection = ({data=[], pageNum,setPageNum = () =>{}, total}) => {
   
     const Card = ({item}) => {
         return (
