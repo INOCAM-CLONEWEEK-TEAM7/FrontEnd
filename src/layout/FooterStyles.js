@@ -3,6 +3,9 @@ import { styled } from "styled-components";
 const FooterLayout = styled.footer`
   border-top: 1px solid var(--black);
   width: 100%;
+  & p{
+    color: var(--black);
+  }
 `;
 
 const RealTimeState = styled.div`
@@ -56,10 +59,11 @@ const FooterNavItem = styled.div`
 
 const FooterAddressInfo = styled.div`
   font-size: 14px;
-
+  color: var(--black);
   p {
     margin-top: 20px;
     font-size: 12px;
+    color: var(--black);
   }
 `;
 

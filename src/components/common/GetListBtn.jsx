@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import ChangeOnHoverButton from './styles/ChangeOnHoverButton';
 
 const GetListBtn = ({pageNum, setPageNum}) => {
 
@@ -9,9 +10,15 @@ const GetListBtn = ({pageNum, setPageNum}) => {
     }
 
     return (
-        <Button onClick={GetList}>
+        <ChangeOnHoverButton 
+        $bgColor="var(--white)"
+        $color="var(--black)"
+        $bgOnHover="var(--orange)"
+        $colorOnHover="var(--black)" 
+        $width = "200px"
+        onClick={GetList}>
             더보기
-        </Button>
+        </ChangeOnHoverButton>
     );
 };
 
