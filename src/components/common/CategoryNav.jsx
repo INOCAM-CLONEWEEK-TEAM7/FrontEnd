@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 
 const Nav = () => {
   const params = useParams();
-  console.log(params);
   const [tag, setTag] = useState([
     {
       tagName: "전체",
