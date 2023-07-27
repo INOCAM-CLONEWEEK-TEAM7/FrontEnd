@@ -100,14 +100,15 @@ const ItemBoxLink = styled.a`
 const Img = styled.img`
     width:100%;
     height: 200px;
+    border-bottom:1px solid black;
 `
 const ItemBody = styled.div`
     display:flex;
+    justify-content: space-between;
     flex-direction:column;
-    padding : 5%;
-    border-top:1px solid black;
+    padding : 0 5% 5% 5%;
     border-bottom:1px solid black;
-    height:150px;
+    height: 110px;
 `
 
 const MetaContainer = styled.div`
