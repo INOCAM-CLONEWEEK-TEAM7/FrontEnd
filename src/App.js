@@ -11,26 +11,29 @@ import LoadingPage from "./pages/LoadingPage";
 import GlobalStyle from "./globalStyle/GlobalStyle";
 import { useSelector } from "react-redux";
 import TagPage from "./pages/TagPage";
+import { Suspense } from "react";
 
 function App() {
-  const nightMode = useSelector((state)=>state.nightMode)
+  const nightMode = useSelector((state) => state.nightMode)
   return (
     <>
-      <GlobalStyle $nightMode={nightMode}/>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="" element={<MainPage />} />
-          <Route path="tag/:category" element={<TagPage />} />
-          <Route path="search/posts" element={<SearchResultPage />} />
-          <Route path="/detail/:newsId" element={<DetailPage />} />
-          <Route path="/loading" element={<LoadingPage />} />
+      <GlobalStyle $nightMode={nightMode} />
+      <Suspense fallback={<LoadingPage />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<MainPage />} />
+            <Route path="tag/:category" element={<TagPage />} />
+            <Route path="search/posts" element={<SearchResultPage />} />
+            <Route path="/detail/:newsId" element={<DetailPage />} />
+            <Route path="/loading" element={<LoadingPage />} />
 
-        </Route>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/forgot" element={<ForgotPage />} />
-      </Routes>
+          </Route>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/forgot" element={<ForgotPage />} />
+        </Routes>
+      </Suspense>
     </>
 
   );

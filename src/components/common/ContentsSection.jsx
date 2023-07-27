@@ -17,8 +17,8 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
       <ItemBoxLink href={`/detail/${item.newsId}`}>
         {
           item.imageUrl === null
-            ? <Img loading='lazy' src={NullImage}></Img>
-            : <Img loading='lazy' src={item.imageUrl}></Img>
+            ? <Img  src={NullImage}></Img>
+            : <Img  src={item.imageUrl}></Img>
         }
         <ItemBody>
           <h3>{item.title}</h3>

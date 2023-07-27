@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getNewsesBySearchP } from "../api/news";
 import { useQuery } from "react-query";
 import LoadingPage from "./LoadingPage";
+import Recommend from "../components/searchPage/Recommend";
 
 function SearchResultPage() {
 
@@ -19,7 +20,9 @@ function SearchResultPage() {
   console.log(pageNum)
 
   //검색결과를 가져올 리엑트 쿼리 
-  const { isLoading, isError, data, isSuccess } = useQuery(`search${keyword}${pageNum}`, getNewsesBySearchP(keyword, pageNum));
+  const { isLoading, isError, data, isSuccess } = useQuery(`search${keyword}${pageNum}`, getNewsesBySearchP(keyword, pageNum), {
+    suspense: pageNum ? false : true,
+  });
 
   const [newsList, setNewsList] = useState([]);
   const [ListNum, setListNum] = useState(0);
@@ -30,8 +33,8 @@ function SearchResultPage() {
     {
       if (isSuccess) {
         console.log(data);
-        setNewsList([...newsList, ...(data.data.success? data.data.data.newsList: [])]);
-        setListNum(data.data.success? data.data.data.newsCount: 0)
+        setNewsList([...newsList, ...(data.data.success ? data.data.data.newsList : [])]);
+        setListNum(data.data.success ? data.data.data.newsCount : 0)
       }
     }
   }, [data])
@@ -55,25 +58,35 @@ function SearchResultPage() {
         ?
         <>
           <ResultHeader>
-            <h2>
-              <Span>{keyword}</Span>
+            {
+              data.data.success ?
+                <>
+                  <h2>
+                    <Span>{keyword}</Span>
 
-              {"의 검색 결과예요."}
-            </h2>
-            {/* <span>{`🦔고슴이 ${ListNum}개 찾았음!`}</span> */}
+                    {"의 검색 결과예요."}
+                  </h2>
+                  <span>{`🦔고슴이 ${data.data.data.newsCount}개 찾았음!`}</span>
+                  <div className="sorting">
+                    <ChangeOnHoverButton
+                      $bgOnHover={"var(--black)"}
+                      $colorOnHover={"var(--white)"}
+                      $width={'80px'}
+                      $padding={"40"}
+                    >
+                      최신순
+                    </ChangeOnHoverButton>
 
-
-            <div className="sorting">
-              <ChangeOnHoverButton
-                $bgOnHover={"var(--black)"}
-                $colorOnHover={"var(--white)"}
-                $width={'80px'}
-                $padding={"40"}
-              >
-                최신순
-              </ChangeOnHoverButton>
-            
-            </div>
+                  </div>
+                </>
+                :
+                <>
+                  <h2>
+                    {keyword}관련된 이슈를 아직 다루지 않았어요!
+                  </h2>
+                  <Recommend keywordList={["한미정상회담", "간호법", "부동산", "수단", "TV 수신료", "반도체"]} />
+                </>
+            }
           </ResultHeader>
 
           <ContentsSection

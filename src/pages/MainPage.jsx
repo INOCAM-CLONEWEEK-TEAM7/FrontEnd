@@ -20,7 +20,9 @@ function MainPage() {
   console.log(pageNum)
 
   //검색결과를 가져올 리엑트 쿼리 
-  const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum));
+  const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum), {
+    suspense:pageNum? false: true,
+  });
 
   const [newsList, setNewsList] = useState([]);
   const [ListNum, setListNum] = useState(0);
