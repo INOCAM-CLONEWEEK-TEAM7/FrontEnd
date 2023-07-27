@@ -21,7 +21,7 @@ function SearchResultPage() {
 
   //검색결과를 가져올 리엑트 쿼리 
   const { isLoading, isError, data, isSuccess } = useQuery(`search${keyword}${pageNum}`, getNewsesBySearchP(keyword, pageNum), {
-    suspense: pageNum ? false : true,
+    suspense: false
   });
 
   const [newsList, setNewsList] = useState([]);
@@ -32,27 +32,19 @@ function SearchResultPage() {
   useEffect(() => {
     {
       if (isSuccess) {
+
         console.log(data);
         setNewsList([...newsList, ...(data.data.success ? data.data.data.newsList : [])]);
         setListNum(data.data.success ? data.data.data.newsCount : 0)
         if (data.data.statusCode === 200) {
           setNewsList([...newsList, ...data.data.data.newsList]);
-          setListNum(data.data.data.newsCount)
-        }
-        else {
-          setCheck(false)
+          setListNum(data.data.data.newsCount
+          )
         }
       }
     }
-  }, [data, isSuccess])
+  }, [data])
   ////////////////////
-
-
-  const [check, setCheck] = useState(true);
-
-  // if (isLoading) {
-  //   return <LoadingPage />
-  // }
 
   if (isError) {
     // 상세 에러 코드 설명이 없어 모두 같이 처리
@@ -61,34 +53,39 @@ function SearchResultPage() {
 
   return (
     <ResultSection>
-      {data.data.success?
-        <>
-          <ResultHeader>
-            <h2><span>{keyword}</span>의 검색 결과예요.</h2>
-            <span>{`🦔고슴이 ${data.data.data.newsCount}개 찾았음!`}</span>
-            <div className="sorting">
-              <button>
-                최신순
-              </button>
-            </div>
-          </ResultHeader>
-          <ContentsSection
-            data={newsList}
-            pageNum={pageNum}
-            setPageNum={setPageNum}
-            total={ListNum} />
-        </>
-        :
-        <>
-          <ResultHeader>
-            <h2>
-              <Span>{keyword}</Span>
-              {" 관련된 이슈를 아직 다루지 않았어요!"}
-            </h2>
-            <Recommend keywordList={["한미정상회담", "간호법", "부동산", "수단", "TV 수신료", "반도체"]} />
-          </ResultHeader>
-        </>
-      }
+      <ResultHeader>
+        {
+          data?.data.success ?
+            <>
+              <h2>{keyword}의 검색 결과예요.</h2>
+              <span>{`🦔고슴이 ${data.data.data.newsCount}개 찾았음!`}</span>
+              <div className="sorting">
+                <button>
+                  최신순
+                </button>
+
+              </div>
+            </>
+            :
+            <>
+              <ResultHeader>
+                <h2>
+                  <Span>{keyword}</Span>
+                  {"관련된 이슈를 아직 다루지 않았어요!"}
+                </h2>
+
+                <Recommend keywordList={["한미정상회담", "간호법", "부동산", "수단", "TV 수신료", "반도체"]} />
+              </ResultHeader>
+            </>
+        }
+      </ResultHeader>
+
+      <ContentsSection
+        data={newsList}
+        pageNum={pageNum}
+        setPageNum={setPageNum}
+        total={ListNum} />
+
     </ResultSection>
   );
 }
