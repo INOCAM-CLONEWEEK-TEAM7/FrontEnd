@@ -14,12 +14,11 @@ import { useQuery } from "react-query";
 import { useEffect, useState } from "react";
 
 function MainPage() {
-
   //페이징 요청할 페이지넘버
   const [pageNum, setPageNum] = useState(0);
-  console.log(pageNum)
+  console.log(pageNum);
 
-  //검색결과를 가져올 리엑트 쿼리 
+  //검색결과를 가져올 리엑트 쿼리
   const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum));
 
   const [newsList, setNewsList] = useState([]);
@@ -31,12 +30,11 @@ function MainPage() {
     {
       if (isSuccess) {
         setNewsList([...newsList, ...data.data.data.newsList]);
-        setListNum(data.data.data.newsCount)
+        setListNum(data.data.data.newsCount);
       }
     }
-  }, [data])
+  }, [data]);
   ////////////////////
-
 
   const [subscribeuser, setSubscribeUser] = useState(0);
   const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
@@ -61,7 +59,6 @@ function MainPage() {
       //회원가입 진행
     }
   };
-  
 
   return (
     <>
@@ -137,7 +134,7 @@ function MainPage() {
         </S.BannerDescription>
       </S.MainBanner>
       <CategoryNav />
-      <ContentsSection data={newsList} pageNum={pageNum} setPageNum={setPageNum} total={ListNum}/>
+      <ContentsSection data={newsList} pageNum={pageNum} setPageNum={setPageNum} total={ListNum} />
       <MiniBenner />
       <div style={{ height: "120px", borderTop: "1px solid var(--black)" }}></div>
       <S.AsideGuide>
