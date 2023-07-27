@@ -3,6 +3,17 @@ import { styled } from "styled-components";
 
 let id = 1;
 
+// 인자
+// musts: 필수 사항들의 체크여부 상태들을 리스트로 넘겨 받는다.
+// optionals: 선택 사항들의 체크여부 상태들을 리스트로 넘겨 받는다.
+// mustsSetChecks: 필수 사항들의 체크여부 상태를 set하는 함수들을 리스트로 넘겨 받는다.
+// optionalSetChecks: 선택 사항들의 체크여부 상태를 set하는 함수들을 리스트로 넘겨 받는다.
+
+// 반환값
+// CheckBox: 모두 동의합니다 문구가 옆에 적혀있는 체크 박스 컴포넌트. 해당 체크박스가 체크되면 모든 필수,선택 사항들이 자동으로 체크되며, 필수.선택 사항들 중 하나라도 체크가 취소되면 해당 체크박스의 체크도 취소된다.
+// checked: 모두 동의합니다가 체크 되어있는지 여부
+// allMustsChecked: 모든 필수 사항들이 체크 되어있는지 여부
+
 const useAllCheck = (musts, optionals, mustsSetChecks, optionalSetChecks) => {
   const [checked, setChecked] = useState(false);
   const [allMustsChecked, setAllMustsChecked] = useState(false);
