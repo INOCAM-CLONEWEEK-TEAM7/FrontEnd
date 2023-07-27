@@ -4,6 +4,7 @@ import * as S from "./styles/SubscribeStyle";
 import useValidateInput from "../../hooks/useValidateInput";
 import WithHelper from "../common/WithHelper";
 import {postSubscribe} from '../../api/likeSubscrib'
+import { useQueryClient } from "react-query";
 
 const Subscribe = () => {
   const [emailState, setEmailState] = useState(false);
@@ -11,6 +12,8 @@ const Subscribe = () => {
   const [modalText, setModalText] = useState("");
   const [email, handleEmailOnChange, emailValid] = useValidateInput("email");
   const [checkTry, setCheckTry] = useState(false);
+
+  const queryClient = useQueryClient();
 
   const Sub = async(e) => {
     e.preventDefault();
@@ -20,9 +23,10 @@ const Subscribe = () => {
     if(emailValid===true){
       const nickname="";
       try{
-        const response = await postSubscribe(email,nickname);
-        if(response.status===200) alert("구독 되었습니다");
-        
+        const response = await postSubscribe({email,nickname});
+        if(response.data.success) alert("구독 신청되었어요! 레터가 오기 전에 웹사이트에서 콘텐츠를 읽어 보세요!");
+        else alert("이미 구독하셨네요!")
+        queryClient.invalidateQueries('subNum');
       } catch (error){
         alert('에러입니다')
       }
