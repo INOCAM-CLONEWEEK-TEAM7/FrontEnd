@@ -5,14 +5,14 @@ import MiniBenner from "../components/common/MiniBenner";
 import { useQuery } from "react-query";
 import { getNewsDetailP } from "../api/news";
 import { useParams } from "react-router";
-
+import LoadingPage from "./LoadingPage";
 function DetailPage() {
   const params = useParams();
   console.log(params.newsId)
    const {isLoading, isError, data} = useQuery('detail',getNewsDetailP(params.newsId))
 
    if(isLoading){
-    return <div>로딩 중 ..</div>
+    return <LoadingPage />
    }
 
    if(isError){

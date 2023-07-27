@@ -5,6 +5,7 @@ import ChangeOnHoverButton from "../components/common/styles/ChangeOnHoverButton
 import { useEffect, useState } from "react";
 import { getNewsesBySearchP } from "../api/news";
 import { useQuery } from "react-query";
+import LoadingPage from "./LoadingPage";
 
 function SearchResultPage() {
 
@@ -39,7 +40,7 @@ function SearchResultPage() {
   const [check, setCheck] = useState(true);
 
   if (isLoading) {
-    return <div>로딩 중...</div>
+    return <LoadingPage />
   }
 
   if (isError) {
@@ -58,7 +59,7 @@ function SearchResultPage() {
 
               {"의 검색 결과예요."}
             </h2>
-            <span>{`🦔고슴이 ${ListNum}개 찾았음!`}</span>
+            {/* <span>{`🦔고슴이 ${ListNum}개 찾았음!`}</span> */}
 
 
             <div className="sorting">
