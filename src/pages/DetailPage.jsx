@@ -10,7 +10,6 @@ import LoadingPage from "./LoadingPage";
 function DetailPage() {
 
   const params = useParams();
-  console.log(params.newsId)
    const {isLoading, isError, data} = useQuery(`detail${params.newsId}`,getNewsDetailP(params.newsId))
 
    if(isLoading){

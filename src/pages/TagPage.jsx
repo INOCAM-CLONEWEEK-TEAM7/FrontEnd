@@ -9,11 +9,9 @@ import LoadingPage from "./LoadingPage";
 function TagPage() {
   const params = useParams();
   const category = params.category;
-  console.log(category)
 
   //페이징 요청할 페이지넘버
   const [pageNum, setPageNum] = useState(0);
-  console.log(pageNum)
 
   //검색결과를 가져올 리엑트 쿼리 
   const { isLoading, isError, data, isSuccess } = useQuery(`${category}${pageNum}`, getNewsesByCategoryP(category, pageNum), {
@@ -32,7 +30,7 @@ function TagPage() {
         setListNum(data.data.data.newsCount)
       }
     }
-  }, [data])
+  }, [data?.data.data.newsList])
   ////////////////////
 
   // if (isLoading) {

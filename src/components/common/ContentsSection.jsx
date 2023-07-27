@@ -37,8 +37,8 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
     <Section>
       <Wrap>
         {
-          data.map((item) => {
-            return <Card item={item} ></Card>
+          data.map((item, index) => {
+            return <Card item={item} key={index} ></Card>
           })
         }
       </Wrap>
