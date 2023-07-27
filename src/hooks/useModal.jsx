@@ -52,7 +52,7 @@ const useModal = (coverExist = true, exitByOuterClick = true) => {
         <div ref={modalRef}>{children}</div>
       </ViewportCover>
     ) : (
-      <div ref={modalRef}>{children}</div>
+      <div style={{'width':"0px" , "height":"0px"}} ref={modalRef}>{children}</div>
     );
   };
 

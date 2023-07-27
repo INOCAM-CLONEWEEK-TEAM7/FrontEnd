@@ -44,7 +44,7 @@ function SearchResultPage() {
         }
       }
     }
-  }, [data])
+  }, [data, isSuccess])
   ////////////////////
 
 
@@ -61,33 +61,17 @@ function SearchResultPage() {
 
   return (
     <ResultSection>
-      {check
-        ?
+      {data.data.success?
         <>
           <ResultHeader>
-            {
-              data.data.success ?
-                <>
-                  <h2>{keyword}의 검색 결과예요.</h2>
-                  <span>{`🦔고슴이 ${data.data.data.newsCount}개 찾았음!`}</span>
-                  <div className="sorting">
-                    <button>
-                      최신순
-                    </button>
-
-                  </div>
-                </>
-                :
-                <>
-                  <h2>
-                    {keyword}관련된 이슈를 아직 다루지 않았어요!
-                  </h2>
-                  <Recommend keywordList={["한미정상회담", "간호법", "부동산", "수단", "TV 수신료", "반도체"]} />
-                </>
-            }
-
+            <h2><span>{keyword}</span>의 검색 결과예요.</h2>
+            <span>{`🦔고슴이 ${data.data.data.newsCount}개 찾았음!`}</span>
+            <div className="sorting">
+              <button>
+                최신순
+              </button>
+            </div>
           </ResultHeader>
-
           <ContentsSection
             data={newsList}
             pageNum={pageNum}
@@ -99,15 +83,12 @@ function SearchResultPage() {
           <ResultHeader>
             <h2>
               <Span>{keyword}</Span>
-              {"관련된 이슈를 아직 다루지 않았어요!"}
+              {" 관련된 이슈를 아직 다루지 않았어요!"}
             </h2>
-
-            <>검색창에서 썼던 고슴이 추천키워드 </>
+            <Recommend keywordList={["한미정상회담", "간호법", "부동산", "수단", "TV 수신료", "반도체"]} />
           </ResultHeader>
-
         </>
       }
-
     </ResultSection>
   );
 }
@@ -119,17 +100,25 @@ const ResultSection = styled.section`
 
 `
 const ResultHeader = styled.div`
-  padding: 0 5% 5% 10%;
+  padding: 0 5% 2% 10%;
 
   & h2{
+    margin-top: 4rem;
+    margin-bottom: 0.75rem;
     font-size: 2rem;
-    color: var(--dark-gray);
+    color: var(--black);
+    font-weight: 500;
+    &>span{
+      font-size: 2rem;
+      color: var(--dark-gray);
+    }
   }
-  & span{
+  &>span{
     font-size: 1.25rem;
     color: var(--black);
   }
   & button{
+    margin-top: 40px;
     background: var(--black);
     color: var(--white);
     font-weight: 700;
