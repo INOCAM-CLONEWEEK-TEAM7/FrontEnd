@@ -15,7 +15,7 @@ export const PostHeader = styled.div`
 `;
 
 export const TagName = styled(Link)`
-  color: #ff6b00 !important;
+  color: var(--orange);
   font-size: 0.925rem;
   font-weight: 700;
   text-decoration: underline;

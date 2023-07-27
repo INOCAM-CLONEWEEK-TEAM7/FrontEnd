@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import GetListBtn from './GetListBtn';
-import { Link } from 'react-router-dom';
 import NullImage from '../../images/nullIamge.png'
 
 const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) => {
@@ -15,7 +14,7 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
   }, [])
   const Card = ({ item }) => {
     return (
-      <ItemBoxLink to={`/detail/${item.newsId}`}>
+      <ItemBoxLink href={`/detail/${item.newsId}`}>
         {
           item.imageUrl === null
             ? <Img loading='lazy' src={NullImage}></Img>
@@ -71,7 +70,7 @@ const Wrap = styled.section`
   border-left: 1px solid black;
 `;
 
-const ItemBoxLink = styled(Link)`
+const ItemBoxLink = styled.a`
     text-decoration:none;
     border-right:1px solid black;
     border-top:1px solid black;

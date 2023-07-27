@@ -20,11 +20,11 @@ export const OrangeButton = styled.button`
   min-width: 30%;
   font-size: 1.1933rem;
   padding: 1.0333rem;
-  color: #fff;
+  color: var(--white);
   line-height: 1.8575;
   border: 1px solid #051619;
   border-left: 0;
-  background-color: #ff6b00;
+  background-color: var(--orange);
   border-radius: 0 8px 8px 0;
   cursor: pointer;
 
@@ -53,7 +53,7 @@ export const SubscribeInfo = styled.p`
   margin-top: 1.3333rem;
   font-size: 0.8rem;
   font-weight: bold;
-  color: darkgray;
+  color: var(--dark-gray);
   text-align: center;
 `;
 
