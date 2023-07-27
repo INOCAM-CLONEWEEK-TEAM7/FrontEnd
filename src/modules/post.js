@@ -1,27 +1,19 @@
-//-----------------------------------------
-//생성함수
-//-----------------------------------------
-const Position = "post/Position";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const PostPosition = payload => {
-  return {
-    type: Position,
-    payload: payload,
-  };
-};
 
-//-----------------------------------------
-// 리듀서
-//-----------------------------------------
+const PostSlice = createSlice({
+  name: 'postData',
+  initialState:{},
+  reducers:{
+    PostPosition: (state,action)=>{
+      return {...state, postPosition : action.payload}
+    },
 
-const postData = (state = [], action) => {
-  switch (action.type) {
-    case Position:
-      state.position = action.payload;
-      return [...state];
-    default:
-      return state;
+    PostHeight: (state,action)=>{
+      return {...state, postHeight : action.payload}
+    }
   }
-};
+})
 
-export default postData;
+export const {PostPosition,PostHeight} = PostSlice.actions
+export default PostSlice.reducer

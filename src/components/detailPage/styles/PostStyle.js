@@ -15,7 +15,7 @@ export const PostHeader = styled.div`
 `;
 
 export const TagName = styled(Link)`
-  color: #ff6b00 !important;
+  color: var(--orange);
   font-size: 0.925rem;
   font-weight: 700;
   text-decoration: underline;
@@ -25,7 +25,7 @@ export const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 40rem;
+  max-width: 45rem;
   padding: 4rem 1.4285rem 5.7142rem;
 `;
 
