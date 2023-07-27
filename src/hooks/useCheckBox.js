@@ -4,6 +4,16 @@ import { styled } from "styled-components";
 
 let id = 1;
 
+// 인자
+// text: 체크박스 옆에 나오는 문구들 넘겨 받는다
+// termsURL: 약관의 URL을 넘겨받는다. URL이 빈 값일 시, 오른쪽에 약관 동의 링크가 만들어지지 않는다.
+// inText: true일 때 약관의 URL이 text에 링크된다.
+
+// 반환값
+// CheckBox: text 문구가 옆에 적혀있는 체크 박스 컴포넌트. 
+// checked: 체크박스가 체크 되어있는지 여부
+// setChecked: checked를 set하는 함수
+
 const useCheckBox = (text, termsURL, inText) => {
   const [checked, setChecked] = useState(false);
 
