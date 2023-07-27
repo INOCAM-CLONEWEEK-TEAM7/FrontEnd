@@ -33,7 +33,7 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
       <Wrap>
         {
           data.map((item) => {
-            return <Card item={item}></Card>
+            return <Card item={item} key={item.newsId}></Card>
           })
         }
       </Wrap>

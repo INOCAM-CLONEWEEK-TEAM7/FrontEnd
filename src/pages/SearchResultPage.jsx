@@ -29,8 +29,13 @@ function SearchResultPage() {
   useEffect(() => {
     {
       if (isSuccess) {
-        setNewsList([...newsList, ...data.data.data.newsList]);
-        setListNum(data.data.data.newsCount)
+        if (data.data.statusCode === 200) {
+          setNewsList([...newsList, ...data.data.data.newsList]);
+          setListNum(data.data.data.newsCount)
+        }
+        else {
+          setCheck(false)
+        }
       }
     }
   }, [data])
@@ -45,7 +50,7 @@ function SearchResultPage() {
 
   if (isError) {
     // 상세 에러 코드 설명이 없어 모두 같이 처리
-    if(check===true) setCheck(false)
+    alert("에러입니다")
   }
 
   return (
@@ -71,7 +76,7 @@ function SearchResultPage() {
               >
                 최신순
               </ChangeOnHoverButton>
-            
+
             </div>
           </ResultHeader>
 

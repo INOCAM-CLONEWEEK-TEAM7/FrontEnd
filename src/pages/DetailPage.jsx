@@ -6,10 +6,12 @@ import { useQuery } from "react-query";
 import { getNewsDetailP } from "../api/news";
 import { useParams } from "react-router";
 import LoadingPage from "./LoadingPage";
+
 function DetailPage() {
+
   const params = useParams();
   console.log(params.newsId)
-   const {isLoading, isError, data} = useQuery('detail',getNewsDetailP(params.newsId))
+   const {isLoading, isError, data} = useQuery(`detail${params.newsId}`,getNewsDetailP(params.newsId))
 
    if(isLoading){
     return <LoadingPage />
@@ -18,8 +20,6 @@ function DetailPage() {
    if(isError){
     return <div>에러가 발생했습니다!</div>
    }
-
-   console.log(data)
 
   return (
     <div>
