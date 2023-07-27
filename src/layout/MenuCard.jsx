@@ -9,8 +9,8 @@ const MenuContainer = styled.div`
   background: var(--white);
   border: 1px solid var(--black);
   position: relative;
-  top: 72px;
-  left: 98px;
+  top: 50px;
+  left: -181px;
 
   &>*{
     display: block;

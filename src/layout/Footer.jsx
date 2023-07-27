@@ -8,10 +8,10 @@ import { useState } from "react";
 
 function Footer() {
   //몇명구독인지는 있음 몇회 발행인지는 없음
-  const { isLoading, isError, data } = useQuery("Subscibe", getSubsciberCount);
+  const { isLoading, isError, data } = useQuery("subNum", getSubsciberCount);
   console.log(data);
   const navigate = useNavigate();
-  const [newcount, setNewCount] = useState(0);
+  const [newcount, setNewCount] = useState(24);
   const [isHover, setIsHover] = useState(false);
 
   return (
