@@ -53,8 +53,10 @@ export const PostFoot = styled.section`
 `;
 
 export const PostLikeBtn = styled.section`
+  color: ${(props)=>props.color};
   background: none;
   color: var(--black);
+  cursor: pointer;
 `;
 
 export const ShareBtnContainer = styled.div`

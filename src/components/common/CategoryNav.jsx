@@ -49,9 +49,9 @@ const Nav = () => {
       {tag.map(item => {
         let check = false;
         item.url.includes(params.category) ? (check = true) : (check = false);
-        console.log(check, item.tagName);
+
         return (
-          <StyledLink href={item.url} border={check}>
+          <StyledLink href={item.url} border={check} key={item.url}>
             {item.tagName}
           </StyledLink>
         );

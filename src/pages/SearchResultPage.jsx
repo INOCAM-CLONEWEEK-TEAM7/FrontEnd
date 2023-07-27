@@ -35,6 +35,13 @@ function SearchResultPage() {
         console.log(data);
         setNewsList([...newsList, ...(data.data.success ? data.data.data.newsList : [])]);
         setListNum(data.data.success ? data.data.data.newsCount : 0)
+        if (data.data.statusCode === 200) {
+          setNewsList([...newsList, ...data.data.data.newsList]);
+          setListNum(data.data.data.newsCount)
+        }
+        else {
+          setCheck(false)
+        }
       }
     }
   }, [data])
@@ -47,10 +54,10 @@ function SearchResultPage() {
   //   return <LoadingPage />
   // }
 
-  // if (isError) {
-  //   // 상세 에러 코드 설명이 없어 모두 같이 처리
-  //   if(check===true) setCheck(false)
-  // }
+  if (isError) {
+    // 상세 에러 코드 설명이 없어 모두 같이 처리
+    alert("에러입니다")
+  }
 
   return (
     <ResultSection>
@@ -78,6 +85,7 @@ function SearchResultPage() {
                   <Recommend keywordList={["한미정상회담", "간호법", "부동산", "수단", "TV 수신료", "반도체"]} />
                 </>
             }
+
           </ResultHeader>
 
           <ContentsSection

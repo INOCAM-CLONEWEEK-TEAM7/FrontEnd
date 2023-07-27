@@ -6,7 +6,7 @@ const MainBanner = styled.div`
   overflow: hidden;
 `;
 
-const MainBannerImage = styled.image`
+const MainBannerImage = styled.div`
   position: absolute;
   top: 6.5rem;
   left: 50%;
