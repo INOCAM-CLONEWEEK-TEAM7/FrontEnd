@@ -22,6 +22,7 @@ const Progessbar = ({title}) => {
         // %계산 : 헤더아래쪽부터 / (post영역의 높이 - 현재보이는 높이(스크롤 아래쪽을 기준으로 도착지정위함))   
         const scroll = `${(nowScroll - postData.postPosition) / (postData.postHeight-document.documentElement.clientHeight)}`;
         progerssRef.current.style.transform = `scale(${scroll}, 1)`;
+        progerssRef.current.style.transition='.1s';
       } else {
         ContainerRef.current.style.display = "none";
       }

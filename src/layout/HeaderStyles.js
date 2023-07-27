@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import logo from "../images/newneek-logo.png";
-
+import { Link } from "react-router-dom";
 const HeaderLayout = styled.header`
   border-bottom: 1px solid var(--black);
   position: relative;
@@ -13,6 +13,9 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+    @media only screen and (max-width: 767px) {
+    display:none;
+  }
 `;
 
 const HeaderLogo = styled.div`
@@ -92,12 +95,43 @@ const NightModeContainer = styled.div`
 //   cursor: pointer;
 // `;
 
+const Small = styled.div`
+  @media only screen and (min-width: 767px) {
+    display:none;
+  }
+
+  @media only screen and (max-width: 767px) {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20%;
+    position:fixed;
+    height:50px;
+    width:100%;
+    bottom:0;
+    z-index:1000;
+    background-color:var(--white);
+
+    border-top:1px solid black;
+    font-size:20px;
+  }
+
+`
+
+const StyledLink = styled(Link)`
+  text-decoration:none;
+`
+
 export const S = {
   HeaderLayout,
   HeaderWrapper,
   HeaderLogo,
   SearshButton,
   LoginButton,
-  NightModeContainer
+  NightModeContainer,
+  Small,
+  StyledLink
   //   UserButton,
 };
+
+

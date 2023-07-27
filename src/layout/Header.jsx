@@ -8,6 +8,7 @@ import MenuCard from "./MenuCard";
 import { ReactComponent as NightModeIcon } from "../assets/nightModeIcon.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMode } from "../modules/nightMode";
+import { Link } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
@@ -18,6 +19,11 @@ function Header() {
 
   return (
     <S.HeaderLayout>
+      <S.Small>
+        <S.StyledLink to={'/'}>🏠홈</S.StyledLink>
+        <S.StyledLink to={'/search'}>🔍검색</S.StyledLink>
+        <S.StyledLink>🦔마이페이지</S.StyledLink>
+      </S.Small>
       <S.HeaderWrapper>
         <S.HeaderLogo
           onClick={() => {
