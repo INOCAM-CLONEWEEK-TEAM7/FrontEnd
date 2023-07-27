@@ -8,11 +8,6 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
 
   const BtnRef = useRef();
 
-  // useEffect(() => {
-  //   if (pageNum !== 0)
-  //     BtnRef.current?.scrollIntoView({ behavior: 'smooth' });
-
-  // }, [])
   const Card = ({ item }) => {
     return (
       <ItemBoxLink href={`/detail/${item.newsId}`}>

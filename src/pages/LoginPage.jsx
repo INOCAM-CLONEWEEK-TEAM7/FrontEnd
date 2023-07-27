@@ -4,10 +4,12 @@ import EmailLogin from "../components/loginPage/EmailLogin";
 import SnsLogin from "../components/loginPage/SnsLogin";
 import { LoginDivider } from "../components/loginPage/styles/LoginDivider";
 import LoginSection from "../components/loginPage/styles/LoginSection";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SignUpPage from "./SignUpPage";
 
 function LoginPage() {
+  const param = useParams();
+  console.log(param)
   const [firstCome, setFirstCome] = useState(false);
   const [email, setEmail] = useState('');
   const navigate = useNavigate();

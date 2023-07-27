@@ -4,7 +4,7 @@ import Logo from "../components/common/Logo";
 import { S } from "./FooterStyles";
 import { getSubsciberCount } from "../api/likeSubscrib";
 import { useQuery } from "react-query";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 function Footer() {
   //몇명구독인지는 있음 몇회 발행인지는 없음
@@ -13,6 +13,10 @@ function Footer() {
   const navigate = useNavigate();
   const [newcount, setNewCount] = useState(0);
   const [isHover, setIsHover] = useState(false);
+
+  useLayoutEffect(()=>{
+
+  },[])
 
   return (
     <S.FooterLayout>

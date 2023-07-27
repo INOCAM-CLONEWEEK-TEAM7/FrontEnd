@@ -24,8 +24,10 @@ const Post = ({ data }) => {
   useEffect(() => {
     //상대위치: 현재 스크롤 맨위에서 얼마나 떨어졌나
     /*  console.log(postRef.current.getBoundingClientRect().top); */
-    //스크롤 절대위치 :  스크롤된 값 +  상대위치 = 절대위치
+
+    //post 부분스크롤 절대위치 :  스크롤된 값 +  상대위치 = 절대위치
     const postPosition = document.documentElement.scrollTop + postRef.current.getBoundingClientRect().top;
+    //post 부분 의 높이 
     const postheight = postRef.current.getBoundingClientRect().height
     dispatch(PostPosition(postPosition));
     dispatch(PostHeight(postheight));

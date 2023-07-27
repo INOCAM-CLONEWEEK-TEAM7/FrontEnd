@@ -11,14 +11,15 @@ function LoadingPage() {
 
 export default LoadingPage;
 
-const rotate_image = keyframes`
-  100% {
-  transform : rotate(360deg)
+const rotate_image = keyframes` //키프레임 생성
+  100% { 
+  transform : rotate(360deg) //360도 회전
 }
 `;
 
+
 const Img = styled.img`
-  animation: ${rotate_image} 6s linear infinite;
+  animation: ${rotate_image} 6s linear infinite; //애니메이션 효과로 돌려버림 /일정한속도로/ 무한  
   transform-origin: 50% 50%;
   width:100px;
 `;
