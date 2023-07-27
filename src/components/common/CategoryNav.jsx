@@ -50,7 +50,7 @@ const Nav = () => {
         item.url.includes(params.category) ? (check = true) : (check = false);
 
         return (
-          <StyledLink href={item.url} border={check} key={item.url}>
+          <StyledLink href={item.url} $border={check} key={item.url}>
             {item.tagName}
           </StyledLink>
         );
@@ -86,7 +86,7 @@ const StyledLink = styled.a`
   text-decoration: none;
   color: var(--black);
   cursor: pointer;
-  border-bottom: ${props => (props.border ? "3px solid var(--black)" : "none")};
+  border-bottom: ${props => (props.$border ? "3px solid var(--black)" : "none")};
 
   &:hover {
     color: var(--orange);

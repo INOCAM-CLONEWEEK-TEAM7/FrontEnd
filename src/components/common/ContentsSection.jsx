@@ -34,9 +34,11 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => {}, total }) =
   return (
     <Section>
       <Wrap>
-        {data.map(item => {
-          return <Card item={item}></Card>;
-        })}
+        {
+          data.map((item, index) => {
+            return <Card item={item} key={index} ></Card>
+          })
+        }
       </Wrap>
       <div ref={BtnRef} />
       {
