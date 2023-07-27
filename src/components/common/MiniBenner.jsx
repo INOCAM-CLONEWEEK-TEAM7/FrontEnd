@@ -66,4 +66,5 @@ const BennerText = styled.div`
   font-weight: 600;
   gap: 1rem;
   border-bottom: 1px solid var(--black);
+  color: var(--black);
 `;
