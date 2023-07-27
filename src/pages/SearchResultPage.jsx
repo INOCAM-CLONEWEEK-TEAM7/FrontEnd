@@ -19,7 +19,7 @@ function SearchResultPage() {
   console.log(pageNum)
 
   //검색결과를 가져올 리엑트 쿼리 
-  const { isLoading, isError, data, isSuccess } = useQuery(`search${pageNum}`, getNewsesBySearchP(keyword, pageNum));
+  const { isLoading, isError, data, isSuccess } = useQuery(`search${keyword}${pageNum}`, getNewsesBySearchP(keyword, pageNum));
 
   const [newsList, setNewsList] = useState([]);
   const [ListNum, setListNum] = useState(0);
@@ -29,8 +29,9 @@ function SearchResultPage() {
   useEffect(() => {
     {
       if (isSuccess) {
-        setNewsList([...newsList, ...data.data.data.newsList]);
-        setListNum(data.data.data.newsCount)
+        console.log(data);
+        setNewsList([...newsList, ...(data.data.success? data.data.data.newsList: [])]);
+        setListNum(data.data.success? data.data.data.newsCount: 0)
       }
     }
   }, [data])
@@ -39,14 +40,14 @@ function SearchResultPage() {
 
   const [check, setCheck] = useState(true);
 
-  if (isLoading) {
-    return <LoadingPage />
-  }
+  // if (isLoading) {
+  //   return <LoadingPage />
+  // }
 
-  if (isError) {
-    // 상세 에러 코드 설명이 없어 모두 같이 처리
-    if(check===true) setCheck(false)
-  }
+  // if (isError) {
+  //   // 상세 에러 코드 설명이 없어 모두 같이 처리
+  //   if(check===true) setCheck(false)
+  // }
 
   return (
     <ResultSection>
