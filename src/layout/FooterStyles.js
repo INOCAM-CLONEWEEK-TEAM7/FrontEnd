@@ -3,8 +3,46 @@ import { styled } from "styled-components";
 const FooterLayout = styled.footer`
   border-top: 1px solid var(--black);
   width: 100%;
-  & p{
+
+  & p {
     color: var(--black);
+  }
+
+  .slide {
+    width: 100%;
+    line-height: 1;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--black);
+    cursor: pointer;
+  }
+
+  .slide-in {
+    display: flex;
+    width: 4800px;
+  }
+
+  .text-list {
+    display: flex;
+    width: 2400px;
+  }
+
+  .text {
+    width: 190px;
+    margin-right: 50px;
+    font-size: 1.5rem;
+  }
+
+  .animation {
+    animation: marquee-right 20s linear infinite;
+  }
+
+  @keyframes marquee-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
 `;
 
@@ -66,32 +104,6 @@ const FooterAddressInfo = styled.div`
     color: var(--black);
   }
 `;
-
-/*
-@keyframes marquee {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-
-    to {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%)
-    }
-}
-
-@keyframes marquee-right {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-
-    to {
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%)
-    }
-}
-*/
 
 export const S = {
   FooterLayout,
