@@ -7,25 +7,59 @@ import { useQuery } from "react-query";
 import { useState } from "react";
 
 function Footer() {
-  //몇명구독인지는 있음 몇회 발행인지는 없음 
-  const {isLoading, isError, data} = useQuery('Subscibe',getSubsciberCount)
+  //몇명구독인지는 있음 몇회 발행인지는 없음
+  const { isLoading, isError, data } = useQuery("subNum", getSubsciberCount);
   console.log(data);
   const navigate = useNavigate();
-  const [newcount, setNewCount] = useState(0);
+  const [newcount, setNewCount] = useState(24);
+  const [isHover, setIsHover] = useState(false);
 
   return (
     <S.FooterLayout>
-      <S.RealTimeState
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        <p>
-          오늘까지 <strong style={{ fontWeight: "bold" }}>{newcount}회</strong> 뉴스레터를 발행했고{" "}
-          <strong style={{ fontWeight: "bold" }}>{data}명</strong>이 구독했어요!
-        </p>
-        <img src={arrow} alt="right-arrow"></img>
-      </S.RealTimeState>
+      <div onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
+        {isHover ? (
+          <div className="slide">
+            <div className="slide-in animation">
+              <div className="text-list">
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+              </div>
+              <div className="text-list">
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+                <p className="text">뉴스레터 구독하기</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <S.RealTimeState
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <p>
+              오늘까지 <strong style={{ fontWeight: "bold" }}>{newcount}회</strong> 뉴스레터를 발행했고{" "}
+              <strong style={{ fontWeight: "bold" }}>{data}명</strong>이 구독했어요!
+            </p>
+            <img src={arrow} alt="right-arrow"></img>
+          </S.RealTimeState>
+        )}
+      </div>
       <S.FooterContainer>
         <Logo $width="12%" />
         <S.FooterNav>

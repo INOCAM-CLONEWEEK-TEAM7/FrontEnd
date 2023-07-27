@@ -10,17 +10,25 @@ import CategoryNav from "../components/common/CategoryNav";
 import MiniBenner from "../components/common/MiniBenner";
 import arrow from "../images/right-arrow.png";
 import { getAllNewsesP } from "../api/news";
-import { useQuery } from "react-query";
+import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query";
 import { useEffect, useState } from "react";
 
-function MainPage() {
+import { getSubsciberCount } from "../api/likeSubscrib";
 
+import { postSubscribe } from "../api/likeSubscrib";
+
+
+function MainPage() {
   //페이징 요청할 페이지넘버
   const [pageNum, setPageNum] = useState(0);
-  console.log(pageNum)
+  console.log(pageNum);
 
   //검색결과를 가져올 리엑트 쿼리 
-  const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum));
+  const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum), {
+    suspense:pageNum? false: true,
+  });
+
+  const {isLoading:subIsLoading, isError:subIsError, data:subData} = useQuery('subNum',getSubsciberCount)
 
   const [newsList, setNewsList] = useState([]);
   const [ListNum, setListNum] = useState(0);
@@ -31,16 +39,20 @@ function MainPage() {
     {
       if (isSuccess) {
         setNewsList([...newsList, ...data.data.data.newsList]);
-        setListNum(data.data.data.newsCount)
+        setListNum(data.data.data.newsCount);
       }
     }
-  }, [data])
+  }, [data]);
   ////////////////////
 
 
+
   const [subscribeuser, setSubscribeUser] = useState(0);
-  const [email, handleEmailOnChange, emailValid, setEmailValid] = useValidateInput("email");
-  const [nickname, handleNicknameOnChange, nicknameValid, setNicknameValid] = useValidateInput("");
+  const [email, handleEmailOnChange, emailValid, emailValidate] = useValidateInput("email",false);
+  const [nickname, handleNicknameOnChange, nicknameValid, nicknameValidate] = useValidateInput("nickname",false);
+  const [checkper, setCheckper] = useState(true);
+  const [checkmar, setCheckmar] = useState(true);
+
 
   const [CheckPersonalBox, checkedPersonal] = useCheckBox(
     "개인정보 수집·이용에 동의합니다",
@@ -51,17 +63,29 @@ function MainPage() {
     "https://newneek.notion.site/97c0f3756cc54e3f9b201f8c3abd0dba",
   );
 
+  const queryClient = useQueryClient();
+  const mutation = useMutation(postSubscribe,{
+    onSuccess: (response) => {
+      if(response.data.success)
+        alert("구독 신청되었어요! 레터가 오기 전에 웹사이트에서 콘텐츠를 읽어 보세요!");
+      else{
+        alert("이미 구독하셨네요!");
+      }
+    }
+  });
+
   const handleOnSubmit = e => {
     e.preventDefault();
+    setCheckper(checkedPersonal);
+    setCheckmar(checkedMarketing);
+    emailValidate();
+    nicknameValidate();
 
-    if (!email && !nickname) {
-      setEmailValid(false);
-      setNicknameValid(false);
-    } else if (emailValid && nicknameValid) {
-      //회원가입 진행
+    if (emailValidate() && nicknameValidate() &&checkedMarketing &&checkedPersonal) {
+      mutation.mutate({email,nickname});
+      queryClient.invalidateQueries('subNum');
     }
   };
-  
 
   return (
     <>
@@ -78,7 +102,7 @@ function MainPage() {
               🚀 지금 구독하면 <strong style={{ fontWeight: "bold" }}>내일 아침</strong>에 읽을 수 있어요.
             </S.SubText>
             <S.SubText>
-              ✨ 지금 <strong style={{ fontWeight: "bold" }}>{}명</strong>이 뉴닉을 읽고 있어요.
+              ✨ 지금 <strong style={{ fontWeight: "bold" }}>{subData}명</strong>이 뉴닉을 읽고 있어요.
             </S.SubText>
             <S.SubText style={{ marginTop: "1rem" }}>
               세상 돌아가는 소식, 알고는 싶지만 신문 볼 새 없이 바쁜 게 우리 탓은 아니잖아요!
@@ -104,13 +128,13 @@ function MainPage() {
                   onChange={handleNicknameOnChange}
                 />
               </WithHelper>
-              <WithHelper msg="약관에 동의해주세요." valid={emailValid}>
+              <WithHelper msg="약관에 동의해주세요." valid={checkper}>
                 <CheckPersonalBox
                   checked={checkedPersonal}
                   style={{ display: "block", padding: "0.5rem 0", position: "relative" }}
                 />
               </WithHelper>
-              <WithHelper msg="약관에 동의해주세요." valid={emailValid}>
+              <WithHelper msg="약관에 동의해주세요." valid={checkmar}>
                 <CheckMarketingBox
                   checked={checkedMarketing}
                   style={{ display: "block", padding: "0.5rem 0", position: "relative" }}
@@ -137,7 +161,7 @@ function MainPage() {
         </S.BannerDescription>
       </S.MainBanner>
       <CategoryNav />
-      <ContentsSection data={newsList} pageNum={pageNum} setPageNum={setPageNum} total={ListNum}/>
+      <ContentsSection data={newsList} pageNum={pageNum} setPageNum={setPageNum} total={ListNum} />
       <MiniBenner />
       <div style={{ height: "120px", borderTop: "1px solid var(--black)" }}></div>
       <S.AsideGuide>

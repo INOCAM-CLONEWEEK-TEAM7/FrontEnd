@@ -8,6 +8,9 @@ export const Roundinput = styled.input`
   width: 64%;
   min-width: 200px;
   margin: 0;
+  background-color: var(--white);
+  color: var(--black);
+  border-color: var(--black);
 
   @media only screen and (max-width: 767px) {
     width: 100%;
@@ -26,6 +29,7 @@ export const OrangeButton = styled.button`
   border-left: 0;
   background-color: var(--orange);
   border-radius: 0 8px 8px 0;
+  color: var(--black);
   cursor: pointer;
 
   @media only screen and (max-width: 767px) {
@@ -60,4 +64,5 @@ export const SubscribeInfo = styled.p`
 export const Span = styled.span`
   text-decoration: underline;
   cursor: pointer;
+  color: var(--black);
 `;
