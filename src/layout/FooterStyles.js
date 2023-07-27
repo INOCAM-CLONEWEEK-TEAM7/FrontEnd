@@ -13,6 +13,7 @@ const FooterLayout = styled.footer`
     line-height: 1;
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--black);
+    overflow: hidden;
     cursor: pointer;
   }
 

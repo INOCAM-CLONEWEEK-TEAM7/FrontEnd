@@ -1,11 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import { styled } from 'styled-components';
-import GetListBtn from './GetListBtn';
-import NullImage from '../../images/nullIamge.png'
-import categoryToKo from './categoryToKo';
+import React, { useRef, useEffect } from "react";
+import { styled } from "styled-components";
+import GetListBtn from "./GetListBtn";
+import NullImage from "../../images/nullIamge.png";
+import categoryToKo from "./categoryToKo";
 
-const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) => {
-
+const ContentsSection = ({ data = [], pageNum, setPageNum = () => {}, total }) => {
   const BtnRef = useRef();
 
   // useEffect(() => {
@@ -16,40 +15,38 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
   const Card = ({ item }) => {
     return (
       <ItemBoxLink href={`/detail/${item.newsId}`}>
-        {
-          item.imageUrl === null
-            ? <Img loading='lazy' src={NullImage}></Img>
-            : <Img loading='lazy' src={item.imageUrl}></Img>
-        }
+        {item.imageUrl === null ? (
+          <Img loading="lazy" src={NullImage}></Img>
+        ) : (
+          <Img loading="lazy" src={item.imageUrl}></Img>
+        )}
         <ItemBody>
           <h3>{item.title}</h3>
           <MetaContainer>
-            <div>{item.date.split("T")[0].replaceAll("-","/")}</div> 
+            <div>{item.date.split("T")[0].replaceAll("-", "/")}</div>
             <div>{categoryToKo(item.category)}</div>
           </MetaContainer>
-          
         </ItemBody>
       </ItemBoxLink>
-    )
-  }
+    );
+  };
 
   return (
     <Section>
       <Wrap>
-        {
-          data.map((item) => {
-            return <Card item={item} ></Card>
-          })
-        }
+        {data.map(item => {
+          return <Card item={item}></Card>;
+        })}
       </Wrap>
       <div ref={BtnRef} />
       {
-        //마지막에 도착하면 버튼 삭제 
-        total <= 12 || total - 12 <= pageNum * 12
-          ? <></>
-          : <GetListBtn pageNum={pageNum} setPageNum={setPageNum} total={total}></GetListBtn>
+        //마지막에 도착하면 버튼 삭제
+        total <= 12 || total - 12 <= pageNum * 12 ? (
+          <></>
+        ) : (
+          <GetListBtn pageNum={pageNum} setPageNum={setPageNum} total={total}></GetListBtn>
+        )
       }
-
     </Section>
   );
 };
@@ -57,15 +54,14 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
 export default ContentsSection;
 
 const Section = styled.section`
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    width:100%;
-    gap:30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
 
-    padding-bottom: 30px;
-    margin-bottom : 200px;
- 
+  padding-bottom: 30px;
+  margin-bottom: 200px;
 `;
 
 const Wrap = styled.section`
@@ -76,9 +72,9 @@ const Wrap = styled.section`
 `;
 
 const ItemBoxLink = styled.a`
-    text-decoration:none;
-    border-right:1px solid black;
-    border-top:1px solid black;
+  text-decoration: none;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
 
   filter: grayscale(1);
 
@@ -98,22 +94,22 @@ const ItemBoxLink = styled.a`
 `;
 
 const Img = styled.img`
-    width:100%;
-    height: 200px;
-`
+  width: 100%;
+  height: 200px;
+`;
 const ItemBody = styled.div`
-    display:flex;
-    flex-direction:column;
-    padding : 5%;
-    border-top:1px solid black;
-    border-bottom:1px solid black;
-    height:150px;
-`
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 150px;
+`;
 
 const MetaContainer = styled.div`
-    display:flex;
-    gap : 14px;
-    &>div{
-      color: var(--black);
-    }
-`
+  display: flex;
+  gap: 14px;
+  & > div {
+    color: var(--black);
+  }
+`;
