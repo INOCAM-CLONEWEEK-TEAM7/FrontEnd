@@ -12,7 +12,11 @@ import arrow from "../images/right-arrow.png";
 import { getAllNewsesP } from "../api/news";
 import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query";
 import { useEffect, useState } from "react";
+
+import { getSubsciberCount } from "../api/likeSubscrib";
+
 import { postSubscribe } from "../api/likeSubscrib";
+
 
 function MainPage() {
   //페이징 요청할 페이지넘버
@@ -23,6 +27,8 @@ function MainPage() {
   const { isLoading, isError, data, isSuccess } = useQuery(`all${pageNum}`, getAllNewsesP(pageNum), {
     suspense:pageNum? false: true,
   });
+
+  const {isLoading:subIsLoading, isError:subIsError, data:subData} = useQuery('subNum',getSubsciberCount)
 
   const [newsList, setNewsList] = useState([]);
   const [ListNum, setListNum] = useState(0);
@@ -39,11 +45,14 @@ function MainPage() {
   }, [data]);
   ////////////////////
 
+
+
   const [subscribeuser, setSubscribeUser] = useState(0);
   const [email, handleEmailOnChange, emailValid, emailValidate] = useValidateInput("email",false);
   const [nickname, handleNicknameOnChange, nicknameValid, nicknameValidate] = useValidateInput("nickname",false);
   const [checkper, setCheckper] = useState(true);
   const [checkmar, setCheckmar] = useState(true);
+
 
   const [CheckPersonalBox, checkedPersonal] = useCheckBox(
     "개인정보 수집·이용에 동의합니다",
@@ -93,7 +102,7 @@ function MainPage() {
               🚀 지금 구독하면 <strong style={{ fontWeight: "bold" }}>내일 아침</strong>에 읽을 수 있어요.
             </S.SubText>
             <S.SubText>
-              ✨ 지금 <strong style={{ fontWeight: "bold" }}>{}명</strong>이 뉴닉을 읽고 있어요.
+              ✨ 지금 <strong style={{ fontWeight: "bold" }}>{subData}명</strong>이 뉴닉을 읽고 있어요.
             </S.SubText>
             <S.SubText style={{ marginTop: "1rem" }}>
               세상 돌아가는 소식, 알고는 싶지만 신문 볼 새 없이 바쁜 게 우리 탓은 아니잖아요!
