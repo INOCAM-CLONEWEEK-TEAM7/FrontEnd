@@ -5,6 +5,7 @@ import * as S from "./styles/PostStyle";
 import { PostPosition ,PostHeight } from "../../modules/post";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import categoryToKo from "../common/categoryToKo";
 
 const Post = ({data}) => {
 
@@ -28,9 +29,9 @@ const Post = ({data}) => {
   return (
     <S.PostSection>
       <S.PostHeader>
-        <S.TagName to={`/tag/${data.category}`}>{data.category}</S.TagName>
+        <S.TagName to={`/tag/${data.category}`}>{categoryToKo(data.category)}</S.TagName>
         <h2>{data.title}</h2>
-        <time>{data.createDate}</time>
+        <time>{data.createDate.split("T")[0].replaceAll("-","/")}</time>
       </S.PostHeader>
 
       <S.PostContainer ref={postRef}>

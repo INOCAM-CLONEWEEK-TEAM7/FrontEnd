@@ -56,7 +56,8 @@ const Modal = styled.div`
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   padding: 24px;
-  background-color: white;
+  background-color: var(--white);
+  color: var(--black);
   max-width: 800px;
   width: 95%;
   height: 80%;
@@ -73,6 +74,10 @@ const OutLayer = styled.div`
   background: ${props => (props.state ? "rgba(0,0,0,0.6)" : "")};
 `;
 
-const Pre = styled.pre`
+const Pre = styled.p`
   white-space: pre-line;
+  color: var(--black);
+  &>a{
+    color: var(--black);
+  }
 `;

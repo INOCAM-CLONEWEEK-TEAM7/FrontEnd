@@ -61,21 +61,12 @@ function SearchResultPage() {
             {
               data.data.success ?
                 <>
-                  <h2>
-                    <Span>{keyword}</Span>
-
-                    {"의 검색 결과예요."}
-                  </h2>
+                  <h2>{keyword}의 검색 결과예요.</h2>
                   <span>{`🦔고슴이 ${data.data.data.newsCount}개 찾았음!`}</span>
                   <div className="sorting">
-                    <ChangeOnHoverButton
-                      $bgOnHover={"var(--black)"}
-                      $colorOnHover={"var(--white)"}
-                      $width={'80px'}
-                      $padding={"40"}
-                    >
+                    <button>
                       최신순
-                    </ChangeOnHoverButton>
+                    </button>
 
                   </div>
                 </>
@@ -121,6 +112,27 @@ const ResultSection = styled.section`
 `
 const ResultHeader = styled.div`
   padding: 0 5% 5% 10%;
+
+  & h2{
+    font-size: 2rem;
+    color: var(--dark-gray);
+  }
+  & span{
+    font-size: 1.25rem;
+    color: var(--black);
+  }
+  & button{
+    background: var(--black);
+    color: var(--white);
+    font-weight: 700;
+    width: 80px;
+    cursor: pointer;
+    font: inherit;
+    position: relative;
+    border: 1px solid var(--black);
+    padding: .25rem 0;
+    outline: none;
+  }
 `
 
 const Span = styled.span`

@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import GetListBtn from './GetListBtn';
 import NullImage from '../../images/nullIamge.png'
+import categoryToKo from './categoryToKo';
 
 const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) => {
 
@@ -17,14 +18,14 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
       <ItemBoxLink href={`/detail/${item.newsId}`}>
         {
           item.imageUrl === null
-            ? <Img  src={NullImage}></Img>
-            : <Img  src={item.imageUrl}></Img>
+            ? <Img loading='lazy' src={NullImage}></Img>
+            : <Img loading='lazy' src={item.imageUrl}></Img>
         }
         <ItemBody>
           <h3>{item.title}</h3>
           <MetaContainer>
             <div>{item.date.split("T")[0].replaceAll("-","/")}</div> 
-            <div>{item.category}</div>
+            <div>{categoryToKo(item.category)}</div>
           </MetaContainer>
           
         </ItemBody>
