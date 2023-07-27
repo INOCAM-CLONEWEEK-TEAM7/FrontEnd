@@ -8,11 +8,12 @@ import persistReducer from "redux-persist/es/persistReducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["nightMode"]
+  whitelist: ["nightMode"],
 };
 
 const rootReducer = combineReducers({
-  postData, nightMode
+  postData,
+  nightMode,
 });
 
 const store = createStore(persistReducer(persistConfig, rootReducer));
