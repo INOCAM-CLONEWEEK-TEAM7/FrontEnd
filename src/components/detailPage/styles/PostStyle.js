@@ -12,6 +12,10 @@ export const PostHeader = styled.div`
   border-bottom: 1px solid #051619;
   text-align: center;
   width: 100%;
+
+  &>time{
+    color: var(--black);
+  }
 `;
 
 export const TagName = styled(Link)`
@@ -34,6 +38,9 @@ export const PostHashTag = styled.section`
   flex-wrap:wrap;
   gap: 10px;
   margin-bottom: 2rem;
+  &>a{
+    color: var(--black);
+  }
 `;
 
 export const PostFoot = styled.section`
@@ -46,7 +53,10 @@ export const PostFoot = styled.section`
 `;
 
 export const PostLikeBtn = styled.section`
+  color: ${(props)=>props.color};
   background: none;
+  color: var(--black);
+  cursor: pointer;
 `;
 
 export const ShareBtnContainer = styled.div`
@@ -65,6 +75,7 @@ export const PostImg = styled.img`
   width: 100%;
 `;
 
-export const Postdetail = styled.pre`
+export const Postdetail = styled.p`
   white-space: pre-line;
+  color: var(--black);
 `;

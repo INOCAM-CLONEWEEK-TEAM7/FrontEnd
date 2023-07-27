@@ -2,16 +2,17 @@ import React, { useRef, useEffect } from 'react';
 import { styled } from 'styled-components';
 import GetListBtn from './GetListBtn';
 import NullImage from '../../images/nullIamge.png'
+import categoryToKo from './categoryToKo';
 
 const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) => {
 
   const BtnRef = useRef();
 
-  useEffect(() => {
-    if (pageNum !== 0)
-      BtnRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // useEffect(() => {
+  //   if (pageNum !== 0)
+  //     BtnRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-  }, [])
+  // }, [])
   const Card = ({ item }) => {
     return (
       <ItemBoxLink href={`/detail/${item.newsId}`}>
@@ -22,7 +23,11 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
         }
         <ItemBody>
           <h3>{item.title}</h3>
-          <span>{item.date} {item.category}</span>
+          <MetaContainer>
+            <div>{item.date.split("T")[0].replaceAll("-","/")}</div> 
+            <div>{categoryToKo(item.category)}</div>
+          </MetaContainer>
+          
         </ItemBody>
       </ItemBoxLink>
     )
@@ -33,7 +38,7 @@ const ContentsSection = ({ data = [], pageNum, setPageNum = () => { }, total }) 
       <Wrap>
         {
           data.map((item) => {
-            return <Card item={item}></Card>
+            return <Card item={item} ></Card>
           })
         }
       </Wrap>
@@ -105,3 +110,10 @@ const ItemBody = styled.div`
     height:150px;
 `
 
+const MetaContainer = styled.div`
+    display:flex;
+    gap : 14px;
+    &>div{
+      color: var(--black);
+    }
+`

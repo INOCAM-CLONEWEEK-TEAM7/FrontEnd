@@ -1,7 +1,8 @@
 import ourAxios from "./ourAxios";
 import { postWithToken } from "./withToken";
 
-export const postLikeToggle = async ({newsId}) => {
+export const postLikeToggle = async (newsId) => {
+  console.log("Asdqw",newsId)
   const response = await postWithToken(`/api/news/${newsId}/like`);
   return response;
 }
