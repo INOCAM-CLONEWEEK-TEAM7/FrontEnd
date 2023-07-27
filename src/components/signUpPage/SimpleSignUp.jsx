@@ -5,7 +5,7 @@ import StyledInput from "../common/styles/StyledInput";
 import useAllCheck from "../../hooks/useAllCheck";
 import ChangeOnHoverButton from "../common/styles/ChangeOnHoverButton";
 import { useMutation } from "react-query";
-import { signUp } from "../../api/user";
+import { socialSignUp } from "../../api/user";
 import { useNavigate } from "react-router-dom";
 
 function SimpleSignUp({email}) {
@@ -34,7 +34,7 @@ function SimpleSignUp({email}) {
 
   const navigate = useNavigate();
 
-  const mutation = useMutation(signUp, {
+  const mutation = useMutation(socialSignUp, {
     onSuccess: (response) => {
       if(response.data.success){
         navigate('/');
@@ -51,7 +51,7 @@ function SimpleSignUp({email}) {
     if (!nickname) {
       setNicknameValid(false);
     } else if (nicknameValid) {
-      mutation.mutate({email,nickname, social:true});
+      mutation.mutate({email,nickname,optionCheck:checkedMarketing});
     }
   };
   return (

@@ -4,13 +4,13 @@ import SignUpPage from "./pages/SignUpPage";
 import SearchPage from "./pages/SearchPage";
 import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
-import TagPage from "./pages/TagPage";
 import SearchResultPage from "./pages/SearchResultPage";
 import DetailPage from "./pages/DetailPage";
 import ForgotPage from "./pages/ForgotPage";
 import LoadingPage from "./pages/LoadingPage";
 import GlobalStyle from "./globalStyle/GlobalStyle";
 import { useSelector } from "react-redux";
+import TagPage from "./pages/TagPage";
 
 function App() {
   const nightMode = useSelector((state)=>state.nightMode)

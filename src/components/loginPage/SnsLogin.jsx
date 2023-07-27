@@ -2,7 +2,7 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import ChangeOnHoverButton from "../common/styles/ChangeOnHoverButton";
 import base64 from "base-64"
 import { useMutation } from "react-query";
-import { login } from "../../api/user";
+import { socialLogin } from "../../api/user";
 import { useNavigate } from "react-router-dom";
 import { SnsLoginButtonBox, GoogleLogoSpan } from "./styles/SnsLoginButtonBox";
 import { ReactComponent as GoogleLogo } from "../../assets/googleLogo.svg"
@@ -10,13 +10,15 @@ import { ReactComponent as GoogleLogo } from "../../assets/googleLogo.svg"
 function SnsLogin({ setEmail, setFirstCome }) {
   const clientId = '794171665895-9ftmoiltr9l101l6h2u06gnr3dtdmonj.apps.googleusercontent.com'
   const navigate = useNavigate();
-  const mutation = useMutation(login, {
-    onSuccess: () => {
-      navigate('/');
+  const mutation = useMutation(socialLogin, {
+    onSuccess: (response) => {
+      if(response.data.success){
+        navigate('/');
+      }
+      else{
+        setFirstCome(true);
+      }
     },
-    onError: () => {
-      setFirstCome(true);
-    }
   })
   const handleOnSuccess = (response) => {
     const jwtPayload = response.credential.split(".")[1];
@@ -24,7 +26,7 @@ function SnsLogin({ setEmail, setFirstCome }) {
     const email = decodedPayload.email;
 
     setEmail(email);
-    mutation.mutate({ email, social: true });
+    mutation.mutate({ email });
 
   }
 

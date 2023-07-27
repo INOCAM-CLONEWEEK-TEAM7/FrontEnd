@@ -9,7 +9,7 @@ function SignUpPage({email}) {
       <Logo $margin="0 auto 3rem" $width="60%" />
       {
         email?
-        <SimpleSignUp/>
+        <SimpleSignUp email={email}/>
         :
         <SignUp />
       }
