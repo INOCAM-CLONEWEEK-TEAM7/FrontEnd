@@ -20,7 +20,8 @@ function EmailLogin() {
       }
     },
     onError: (error) => {
-      alert(error.response.data.msg);
+      if(error.response.data.msg ==="자격 증명에 실패하였습니다.")
+        alert('가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.');
     }
   })
 
