@@ -56,7 +56,7 @@ function SignUp() {
       setPwValid(false);
       setNicknameValid(false);
     } else if (emailValid && passwordValid && checkPw === password && nicknameValid) {
-      mutation.mutate({email,password,nickname});
+      mutation.mutate({email,password,nickname,optionCheck:checkedMarketing});
     }
   };
 

@@ -1,6 +1,6 @@
 import ourAxios from "./ourAxios"
 
-export const signUp = async ({email, password, nickname, optionCheck, social}) => {
+export const signUp = async ({email, password, nickname, optionCheck}) => {
   const response = await ourAxios.post("/api/auth/signup",{email, password, nickname, optionCheck});
 
   if(response.data.success){
@@ -10,8 +10,28 @@ export const signUp = async ({email, password, nickname, optionCheck, social}) =
     return response;
 }
 
-export const login = async ({email, password, social=false}) => {
-  const response = await ourAxios.post("/api/auth/login", {email, password, social});
+export const login = async ({email, password}) => {
+  const response = await ourAxios.post("/api/auth/login", {email, password});
+   
+  if(response.data.success){
+    localStorage.setItem('accessToken', response.headers.get("Authorization"));
+  }
+  
+  return response;
+}
+
+export const socialSignUp = async ({email, nickname, optionCheck}) => {
+  const response = await ourAxios.post("/api/auth/social/signup",{email, nickname, optionCheck});
+
+  if(response.data.success){
+    return await socialLogin({email})
+  }
+  else
+    return response;
+}
+
+export const socialLogin = async ({email}) => {
+  const response = await ourAxios.post("/api/auth/social/login", {email,social:true});
    
   if(response.data.success){
     localStorage.setItem('accessToken', response.headers.get("Authorization"));

@@ -7,6 +7,7 @@ const StyledInput = styled.input`
   border: 1px solid var(--black);
   box-sizing: border-box;
   color: var(--black);
+  background-color: var(--white);
   line-height: 25.2px;
   margin: ${({ $margin }) => $margin || "0px 0px"};
 
